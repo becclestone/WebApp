@@ -5,7 +5,7 @@ function Home() {
   const value = 'World';
   return (
     <div className="home">
-       <div>Hello {value} - This is open page try <Link to="/about">Viewer</Link>;
+       <div>Hello {value} - This is open page try <Link to="/about">Viewer</Link> </div>
     </div>
   );
 }
