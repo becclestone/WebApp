@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "DeepZoom": {
+            "matchCondition": {
+                "route": "/api/proxy/{*restOfPath}"
+            },
+            "backendUri": "https://openseadragon.blob.core.windows.net/dzi/{restOfPath}%sas_token%",
+            "requestOverrides": {
+                "backend.request.headers.Accept": "*/*",
+                "backend.request.headers.Cache-Control": "no-cache",
+                "backend.request.headers.Pragma": "no-cache",
+                "backend.request.headers.Accept-Encoding": "gzip, deflate",
+                "backend.request.headers.Authorization": "{request.headers.x-custom-authorization}"
+            },
+            "debug": true
+        }
+    }
+}
