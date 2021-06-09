@@ -1,27 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
 
 function About() {
+    const [images, setImages] = useState([]);
+  const [manifest, setManifest] = useState();
+
+
+  useEffect(() => {
+    getImages();
+  }, []);
+
+  const getImages = async () => {
+    const response = await fetch("https://miradortest.z13.web.core.windows.net/pictures3.json")
+    let image = await response.json();
+    console.log('image', image)
+    setImages(image.groups)
+  };
+
+  const previewImage = async (slide) => {
+    setManifest(slide.slide);
+  };
   return (
-    <div className="about">
-      <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-7">
-            <img
-              class="img-fluid rounded mb-4 mb-lg-0"
-              src="http://placehold.it/900x400"
-              alt=""
-            />
-          </div>
-          <div class="col-lg-5">
-            <h1 class="font-weight-light">About</h1>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </p>
-          </div>
-        </div>
+    <div className="about"
+         style={{
+       display: "flex",
+       justifyContent:'space-between'
+       }}
+    >
+           <div>
+      //  <h2>Test Images</h2>            
+          {images.map((group, index) => {
+              return (
+                <div 
+                style={{
+                  display:"flex",
+                  flexDirection:'column'
+                  }}
+                >
+                  <h3 key={index}>{group.name}</h3>
+                  {group.slides.map((slide, index) => {
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          return previewImage(slide);
+                        }}
+                      >
+                        {slide.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              );
+            })}
+      </div>
+      <div>
+      <OpenSeaDragonViewer image={manifest} />
       </div>
     </div>
   );
