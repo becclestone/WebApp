@@ -6,7 +6,7 @@
       "statusCode": 200
     },
     {
-      "route": "/about",
+      "route": "/viewer",
       "allowedRoles": ["contributor"]
     },
     {
