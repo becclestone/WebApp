@@ -2,11 +2,11 @@
   "routes": [
     {
       "route": "/",
-      "serve": "/index.html",
+      "serve": "/home",
       "statusCode": 200
     },
     {
-      "route": "/osdimage.html",
+      "route": "/about",
       "allowedRoles": ["contributor"]
     },
     {
