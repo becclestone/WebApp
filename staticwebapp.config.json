@@ -29,7 +29,7 @@
     }
   },
   "navigationFallback": {
-    "rewrite": "/home",
+    "rewrite": "index.html",
     "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
   },
   "mimeTypes": {
