@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
 
-function About() {
+function Viewer() {
     const [images, setImages] = useState([]);
   const [manifest, setManifest] = useState();
 
@@ -22,7 +22,7 @@ function About() {
     setManifest(slide.slide);
   };
   return (
-    <div className="about"
+    <div className="viewer"
          style={{
        display: "flex",
        justifyContent:'space-between'
@@ -62,4 +62,4 @@ function About() {
   );
 }
 
-export default About;
+export default Viewer;
