@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
+import Toolbar from '@material-ui/core/Toolbar';
 
 function Viewer() {
     const [images, setImages] = useState([]);
@@ -22,6 +23,13 @@ function Viewer() {
     setManifest(slide.slide);
   };
   return (
+      <AppBar position="static">
+  <Toolbar variant="dense">
+    <Typography variant="h6" color="inherit">
+      Breast Tissue Clinical Study
+    </Typography>
+  </Toolbar>
+</AppBar>
     <div className="viewer"
          style={{
        display: "flex",
