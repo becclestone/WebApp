@@ -6,10 +6,10 @@ import './Navigation.css';
 function Navigation(props) {
   return (
     <div className="navigation">
-      <nav class="topnav">
-        <div class="centerednav">
-          <h1>Breast Tissue Clinical Study</h1>
-        </div>
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <ul class="nav navbar-nav navbar-center">
+          <li><a href="#">Breast Tissue Clinical Study</a></li>
+          </ul>
       </nav>
     </div>
   );
