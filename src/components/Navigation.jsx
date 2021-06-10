@@ -10,7 +10,6 @@ function Navigation(props) {
         <div class="centerednav">
           <h1>Breast Tissue Clinical Study</h1>
         </div>
-        </div>
       </nav>
     </div>
   );
