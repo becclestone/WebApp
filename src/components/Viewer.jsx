@@ -22,14 +22,22 @@ function Viewer() {
     setManifest(slide.slide);
   };
   return (
+       <div class="demoheading" style="display: flex;">
+            User: &nbsp <b><div id="user"  ></div> </b>
+            <span id='consolelog'></span>
+         </div>
+         <div class="demoheading">   
+            <p class="instructions">Click the annotation to edit. Hold <strong>SHIFT</strong> while clicking and dragging the mouse to create a new annotation.</p>
+            <!-- The toolbar mounts itself into a DIV on your page -->
+            <div id="my-toolbar-container"></div> 
+        </div>
     <div className="viewer"
          style={{
        display: "flex",
        justifyContent:'space-between'
        }}
     >
-           <div>
-      //  <h2>Test Images</h2>            
+           <div>         
           {images.map((group, index) => {
               return (
                 <div 
