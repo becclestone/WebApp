@@ -7,9 +7,11 @@ function Navigation(props) {
   return (
     <div className="navigation">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <ul class="nav navbar-nav navbar-center">
-          <h2>Breast Tissue Clinical Study</h2>
-          </ul>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link disabled" href='#' tabindex="-1" aria-disabled="true">Breast Tissue Clinical Study</a>
+          </li>
+        </ul>
       </nav>
     </div>
   );
