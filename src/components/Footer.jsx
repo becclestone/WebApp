@@ -1,12 +1,18 @@
+
 import React from "react";
-import './Title.css';
 
 function Footer() {
   return (
-    <div className="Title">
-      <h1>Breast Tissue Clinical Trial</h1>
+    <div className="footer">
+      <footer class="py-5 bg-dark fixed-bottom">
+        <div class="container">
+          <p class="m-0 text-center text-white">
+            Copyright &copy; Your Website 2020
+          </p>
+        </div>
+      </footer>
     </div>
-    )
+  );
 }
 
 export default Footer;
