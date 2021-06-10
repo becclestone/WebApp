@@ -6,11 +6,7 @@ function Navigation(props) {
   return (
     <div className="navigation">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="container">
-          <Link class="navbar-brand" to="/">
-            Breast Tissue Clinical Study
-          </Link>
-        </div>
+        <h1>Breast Tissue Clinical Study</h1>
       </nav>
     </div>
   );
