@@ -7,7 +7,7 @@ function Navigation(props) {
     <div className="navigation">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container">
-        <div style={{display: 'flex', alignItems:'center', color:'white'}}>
+        <div style={{display: 'flex', justifiedContent:'center', color:'white'}}>
           <h1>Breast Tissue Clinical Study</h1>
         </div>
         </div>
