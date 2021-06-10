@@ -22,10 +22,12 @@ function Viewer() {
     setManifest(slide.slide);
   };
   return (
+      <div>
        <div class="demoheading" style="display: flex;">
             User: &nbsp <b><div id="user"  ></div> </b>
             <span id='consolelog'></span>
          </div>
+      </div>
     <div className="viewer"
          style={{
        display: "flex",
