@@ -12,7 +12,7 @@ function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("/api/deepzoom/pictures3.json")
+    const response = await fetch("https://miradortest.z13.web.core.windows.net/pictures3.json")
     let image = await response.json();
     console.log('image', image)
     setImages(image.groups)
@@ -27,9 +27,8 @@ function Viewer() {
        display: "flex",
        justifyContent:'space-between'
        }}
-        <h1> Breast Tissue Clinical Study </h1>
     >
-        
+      <h1> Breast Tissue Clinical Study </h1>  
            <div>         
           {images.map((group, index) => {
               return (
