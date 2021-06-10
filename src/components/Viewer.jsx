@@ -29,7 +29,6 @@ function Viewer() {
        justifyContent:'space-between'
        }}
     >
-      <h1> Breast Tissue Clinical Study </h1>  
            <div>         
           {images.map((group, index) => {
               return (
