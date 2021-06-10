@@ -12,7 +12,7 @@ function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("/api/deepzoom")
+    const response = await fetch("/api/deepzoom/pictures3.json")
     let image = await response.json();
     console.log('image', image)
     setImages(image.groups)
