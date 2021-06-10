@@ -12,7 +12,7 @@ function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("https://webappimages.blob.core.windows.net/dzi/pictures3.json")
+    const response = await fetch("/api/deepzoom")
     let image = await response.json();
     console.log('image', image)
     setImages(image.groups)
