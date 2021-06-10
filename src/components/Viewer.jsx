@@ -23,13 +23,6 @@ function Viewer() {
     setManifest(slide.slide);
   };
   return (
-      <AppBar position="static">
-  <Toolbar variant="dense">
-    <Typography variant="h6" color="inherit">
-      Breast Tissue Clinical Study
-    </Typography>
-  </Toolbar>
-</AppBar>
     <div className="viewer"
          style={{
        display: "flex",
