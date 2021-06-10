@@ -6,7 +6,9 @@ function Navigation(props) {
   return (
     <div className="navigation">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <h1 style="color:white; text-align: center;">Breast Tissue Clinical Study</h1>
+        <div style={{display: 'flex', justifyContent:'center', alignItems:'center', height:'100vh', color:'white'}}>
+          <h1>Breast Tissue Clinical Study</h1>
+        </div>
       </nav>
     </div>
   );
