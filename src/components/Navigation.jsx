@@ -8,7 +8,7 @@ function Navigation(props) {
     <div className="navigation">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
         <ul class="nav navbar-nav navbar-center">
-          <li><a href="#">Breast Tissue Clinical Study</a></li>
+          <h2>Breast Tissue Clinical Study</h2>
           </ul>
       </nav>
     </div>
