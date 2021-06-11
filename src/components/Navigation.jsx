@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import './Navigation.css';
+import Typography from '@material-ui/core/Typography';
 
 function Navigation(props) {
   return (
