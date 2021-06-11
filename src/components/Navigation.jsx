@@ -6,8 +6,6 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 function Navigation() {
   return (
-    <div>
-      <MuiThemeProvider>
        <AppBar
           title="Breast Tissue Clinical Study" 
           position="static"   
@@ -22,10 +20,7 @@ function Navigation() {
                color:"#FFFFFF"
              }
            }
-           showMenuIconButton={false}
        />
-      </MuiThemeProvider>
-    </div>
   );
 }
 
