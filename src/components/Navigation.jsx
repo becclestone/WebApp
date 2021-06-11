@@ -2,7 +2,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
-import MuiThemeProvider from "@material-ui/styles/MuiThemeProvider";
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 function Navigation() {
   return (
