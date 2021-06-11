@@ -5,15 +5,22 @@ import './Navigation.css';
 
 function Navigation(props) {
   return (
-    <div className="navigation">
-      <nav class="nav">
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link disabled" href='#' tabindex="-1" aria-disabled="true">Breast Tissue Clinical Study</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <Stack.Navigator>
+      <Stack.Screen 
+        name="Home"
+        component={HomeScreen}
+        options={{
+           title: 'Breast Tissue Clinical Trial',
+           headerStyle: [
+                backgroundColor: '#333333',
+           },
+           headerTintColor: '#fff',
+           headerTitleStyle: {
+             fontWeight: 'bold',
+           },
+        }}
+      />
+    </Stack.Navigator>
   );
 }
 
