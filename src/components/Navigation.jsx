@@ -2,12 +2,10 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
-import MuiThemeProvider from "@material-ui/styles/MuiThemeProvider";
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 function Navigation() {
   return (
-    <div>
-      <MuiThemeProvider>
        <AppBar
           title="Breast Tissue Clinical Study" 
           position="static"   
@@ -22,10 +20,7 @@ function Navigation() {
                color:"#FFFFFF"
              }
            }
-           showMenuIconButton={false}
        />
-      </MuiThemeProvider>
-    </div>
   );
 }
 
