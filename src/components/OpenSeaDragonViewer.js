@@ -36,11 +36,11 @@ const OpenSeaDragonViewer = ({ image }) => {
   }, []);
 
   return (
-  <div 
-  id="openSeaDragon" 
+  <div
+  id="openSeaDragon"
   style={{
-    height: "800px",
-    width: "1200px"
+    height: "400px",
+    width: "1100px"
   }}
   >
   </div>
