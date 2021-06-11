@@ -11,7 +11,7 @@ function Home() {
           <p>Try to open this <a href="viewer">View OpenSeaDragon</a> </p>
     </p>
   </div>
-</div
+</div>
 
   );
 }
