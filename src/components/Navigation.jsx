@@ -20,8 +20,4 @@ function Navigation(props) {
   )
 }
 
-Navigation.propTypes = {
-  classes: PropTypes.object.isRequired\
-};
-
 export default withRouter(Navigation);
