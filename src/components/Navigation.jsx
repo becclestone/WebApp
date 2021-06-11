@@ -13,7 +13,7 @@ function Navigation() {
         </Typography>
       </Toolbar>
     </Container>
-   </Appbar>
+   </AppBar>
   );
 }
 
