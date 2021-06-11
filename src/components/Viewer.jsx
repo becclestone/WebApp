@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
 import Toolbar from '@material-ui/core/Toolbar';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Typography from '@material-ui/core/Typography';
+
 
 function Viewer() {
     const [images, setImages] = useState([]);
-  const [manifest, setManifest] = useState();
+    const [manifest, setManifest] = useState();
 
 
   useEffect(() => {
@@ -29,26 +35,29 @@ function Viewer() {
        justifyContent:'space-between'
        }}
     >
-           <div>         
+      <div>
           {images.map((group, index) => {
               return (
-                <div 
+                <div
                 style={{
                   display:"flex",
                   flexDirection:'column'
                   }}
                 >
-                  <h3 key={index}>{group.name}</h3>
+                <Divider />
+                <ListSubheader> {group.name} </ListSubheader>
                   {group.slides.map((slide, index) => {
                     return (
-                      <button
+                      <ListItem button
                         key={index}
                         onClick={() => {
                           return previewImage(slide);
                         }}
                       >
-                        {slide.name}
-                      </button>
+                      <ListItemText
+                        disableTypography
+                        primary={<Typography align="center">{slide.name}</Typography>} />
+                    </ListItem>
                     );
                   })}
                 </div>
