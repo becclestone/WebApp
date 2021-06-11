@@ -11,8 +11,8 @@ function Navigation(props) {
    <List component="nav">
       <ListItem compnen="div">
         <ListItemText inset>
-          <TypoGraphy color="inherit" variant="title">
-            Breat Tissue Clinical Study
+          <TypoGraphy color="inherit" variant="title" align="center">
+            Breast Tissue Clinical Study
           </TypoGraphy>
         </ListItemText>
       </ListItem>
