@@ -5,10 +5,10 @@ import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 
 function Navigation() {
   return (
-   <AppBar position="static" colo="primary">
+   <AppBar position="static" style={{backgroundColor: '#333333'}}>
     <Container maxWidth="md">
       <Toolbar>
-        <Typography variant="h6" color="inherit" align="center">
+        <Typography variant="h4" color="inherit" align="center">
           Breast Tissue Clinical Study
         </Typography>
       </Toolbar>
