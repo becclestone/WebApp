@@ -1,23 +1,20 @@
 
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import TypoGraphy from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 
-function Navigation(props) {
+function Navigation() {
   return (
-   <List component="nav">
-      <ListItem compnen="div">
-        <ListItemText inset>
-          <TypoGraphy color="inherit" variant="title" align="center">
-            Breast Tissue Clinical Study
-          </TypoGraphy>
-        </ListItemText>
-      </ListItem>
-    </List>
-  )
+   <AppBar position="static" colo="primary">
+    <Container maxWidth="md">
+      <Toolbar>
+        <Typography variant="h6" color="inherit" align="center">
+          Breast Tissue Clinical Study
+        </Typography>
+      </Toolbar>
+    </Container>
+   </Appbar>
+  );
 }
 
 export default withRouter(Navigation);
