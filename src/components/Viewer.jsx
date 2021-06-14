@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
-
+import Box from '@material-ui/core/Box';
 
 function Viewer() {
     const [images, setImages] = useState([]);
@@ -65,7 +65,9 @@ function Viewer() {
             })}
       </div>
       <div>
-      <OpenSeaDragonViewer image={manifest} />
+          <Box m={2} pt={3}>
+            <OpenSeaDragonViewer image={manifest} />
+          </Box>
       </div>
     </div>
   );
