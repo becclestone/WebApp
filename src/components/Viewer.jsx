@@ -12,7 +12,6 @@ import Box from '@material-ui/core/Box';
 function Viewer() {
     const [images, setImages] = useState([]);
     const [manifest, setManifest] = useState();
-    const [active, setActive] = useState();
 
     setUserInfo();
 
@@ -45,28 +44,6 @@ function Viewer() {
         console.log(clientPrincipal);
       }
 
-    const Button = styled.button
-        background-color: black;
-        color: white;
-        font-size: 20px;
-        padding: 10px 60px;
-        border-radius: 5px;
-        margin: 10px 0px;
-        cursor: pointer;
-        &:disabled {
-          color: grey;
-          opacity: 0.7;
-          cursor: default;
-        };
-
-    const ButtonToggle = styled(Button)
-      opacity: 0.6;
-      ${({ active }) =>
-        active &&
-        opacity: 1;
-      };
-
-
   return (
     <div className="viewer"
          style={{
@@ -84,18 +61,19 @@ function Viewer() {
                   }}
                 >
                 <Divider />
-                <h3 key={index}>{group.name}</h3>
+                <ListSubheader> {group.name} </ListSubheader>
                   {group.slides.map((slide, index) => {
                     return (
-                      <ButtonToggle
+                      <ListItem button
                         key={index}
-                        active={active === index}
-                        onClick={() => { setActive(type);
+                        onClick={() => {
                           return previewImage(slide);
                         }}
                       >
-                        {slide.name}
-                    </ButtonToggle>
+                      <ListItemText
+                        disableTypography
+                        primary={<Typography align="center">{slide.name}</Typography>} />
+                    </ListItem>
                     );
                   })}
                 </div>
@@ -103,10 +81,12 @@ function Viewer() {
             })}
       </div>
       <div>
+          <Box m={3}>
           <Typography align="right">
             User:{' '}<b><span id="user"></span> </b>
             <span id='consolelog'></span>
             </Typography>
+            </Box>
           <Box m={3} pt={2}>
             <OpenSeaDragonViewer image={manifest} />
           </Box>
