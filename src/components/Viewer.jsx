@@ -29,11 +29,11 @@ function Viewer() {
   const previewImage = async (slide) => {
     setManifest(slide.slide);
   };
-
+  
     async function getUserInfo() {
         const response = await fetch('/.auth/me');
         const payload = await response.json();
-        const { clientPrincipal } = payload;
+        const { clientPrincipal } = payload; 
         return clientPrincipal;
       }
 
@@ -43,7 +43,7 @@ function Viewer() {
         document.getElementById("user").innerHTML = clientPrincipal.userDetails;
         console.log(clientPrincipal);
       }
-
+    
   return (
     <div className="viewer"
          style={{
@@ -80,11 +80,13 @@ function Viewer() {
               );
             })}
       </div>
-      <div>
+      <div>  
+          <Box m={3}>
           <Typography align="right">
             User:{' '}<b><span id="user"></span> </b>
             <span id='consolelog'></span>
             </Typography>
+            </Box>
           <Box m={3} pt={2}>
             <OpenSeaDragonViewer image={manifest} />
           </Box>
