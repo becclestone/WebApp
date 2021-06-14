@@ -2,8 +2,7 @@
   height: 200px;
   position: relative;
   border: 3px solid blue;
-  justify-content: center;
-  vertical-align: middle;
+  padding: 20px;
 }
 
 .center {
