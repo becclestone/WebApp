@@ -45,7 +45,7 @@ function Viewer() {
         console.log(clientPrincipal);
       }
 
-      const Button = styled.button
+      const Button = styled.button;
           background-color: black;
           color: white;
           font-size: 20px;
