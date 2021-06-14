@@ -8,7 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import ToggleButton from '@material-ui/core/ToggleButton';
+//import ToggleButton from '@material-ui/core/ToggleButton';
 import styled from 'styled-components';
 
 function Viewer() {
