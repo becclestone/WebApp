@@ -28,6 +28,26 @@ function Viewer() {
   const previewImage = async (slide) => {
     setManifest(slide.slide);
   };
+  
+    async function getUserInfo() {
+        const response = await fetch('/.auth/me');
+        const payload = await response.json();
+        const { clientPrincipal } = payload; 
+        return clientPrincipal;
+      }
+
+      async function setUserInfo() {
+        let  clientPrincipal =  await getUserInfo();
+
+        anno.setAuthInfo({
+          id: clientPrincipal.userId,
+          displayName: clientPrincipal.userDetails
+        });
+
+        document.getElementById("user").innerHTML = clientPrincipal.userDetails + ' at ' + clientPrincipal.identityProvider;
+        console.log(clientPrincipal);
+      }
+    
   return (
     <div className="viewer"
          style={{
