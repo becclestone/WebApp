@@ -65,9 +65,7 @@ function Viewer() {
             })}
       </div>
       <div>
-          <div class="demoheading" style="display: flex;">
             User: &nbsp <b><div id="user"  ></div> </b>
-         </div>
           <Box m={3} pt={3}>
             <OpenSeaDragonViewer image={manifest} />
           </Box>
