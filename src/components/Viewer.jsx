@@ -8,6 +8,8 @@ import Divider from '@material-ui/core/Divider';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import ToggleButton from '@material-ui/core/ToggleButton';
+import styled from 'styled-components';
 
 function Viewer() {
     const [images, setImages] = useState([]);
@@ -36,14 +38,14 @@ function Viewer() {
         const payload = await response.json();
         const { clientPrincipal } = payload;
         return clientPrincipal;
-      };
+      }
 
       async function setUserInfo() {
         let  clientPrincipal =  await getUserInfo();
 
         document.getElementById("user").innerHTML = clientPrincipal.userDetails;
         console.log(clientPrincipal);
-      };
+      }
 
       const Button = styled.button
           background-color: black;
