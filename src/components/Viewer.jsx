@@ -40,7 +40,7 @@ function Viewer() {
       async function setUserInfo() {
         let  clientPrincipal =  await getUserInfo();
 
-        document.getElementById("user").innerHTML = clientPrincipal.userDetails + ' at ' + clientPrincipal.identityProvider;
+        document.getElementById("user").innerHTML = clientPrincipal.userDetails;
         console.log(clientPrincipal);
       }
     
