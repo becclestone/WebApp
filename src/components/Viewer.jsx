@@ -82,7 +82,7 @@ function Viewer() {
       </div>
       <div>  
           <Typography align="right">
-            User:<b><div id="user"  style="display: inline"></div> </b>
+            User:<b><div id="user"  style="display: inline;"></div> </b>
             <span id='consolelog'></span>
             </Typography>
           <Box m={3} pt={3}>
