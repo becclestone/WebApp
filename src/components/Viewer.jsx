@@ -36,16 +36,16 @@ function Viewer() {
         const payload = await response.json();
         const { clientPrincipal } = payload;
         return clientPrincipal;
-      }
+      };
 
       async function setUserInfo() {
         let  clientPrincipal =  await getUserInfo();
 
         document.getElementById("user").innerHTML = clientPrincipal.userDetails;
         console.log(clientPrincipal);
-      }
+      };
 
-      const Button = styled.button;
+      const Button = styled.button
           background-color: black;
           color: white;
           font-size: 20px;
