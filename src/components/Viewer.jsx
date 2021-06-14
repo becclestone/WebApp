@@ -82,10 +82,10 @@ function Viewer() {
       </div>
       <div>  
           <Typography align="right">
-            User:<b><span id="user"></span> </b>
+            User:{' '}<b><span id="user"></span> </b>
             <span id='consolelog'></span>
             </Typography>
-          <Box m={3} pt={3}>
+          <Box m={3} pt={2}>
             <OpenSeaDragonViewer image={manifest} />
           </Box>
       </div>
