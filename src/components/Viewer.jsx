@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box';
 function Viewer() {
     const [images, setImages] = useState([]);
     const [manifest, setManifest] = useState();
+    const [active, setActive] = useState();
 
     setUserInfo();
 
@@ -44,6 +45,28 @@ function Viewer() {
         console.log(clientPrincipal);
       }
 
+    const Button = styled.button
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        padding: 10px 60px;
+        border-radius: 5px;
+        margin: 10px 0px;
+        cursor: pointer;
+        &:disabled {
+          color: grey;
+          opacity: 0.7;
+          cursor: default;
+        };
+
+    const ButtonToggle = styled(Button)
+      opacity: 0.6;
+      ${({ active }) =>
+        active &&
+        opacity: 1;
+      };
+
+
   return (
     <div className="viewer"
          style={{
@@ -61,19 +84,18 @@ function Viewer() {
                   }}
                 >
                 <Divider />
-                <ListSubheader> {group.name} </ListSubheader>
+                <h3 key={index}>{group.name}</h3>
                   {group.slides.map((slide, index) => {
                     return (
-                      <ListItem button
+                      <ButtonToggle
                         key={index}
-                        onClick={() => {
+                        active={active === index}
+                        onClick={() => { setActive(type);
                           return previewImage(slide);
                         }}
                       >
-                      <ListItemText
-                        disableTypography
-                        primary={<Typography align="center">{slide.name}</Typography>} />
-                    </ListItem>
+                        {slide.name}
+                    </ButtonToggle>
                     );
                   })}
                 </div>
