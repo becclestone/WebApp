@@ -13,6 +13,7 @@ function Viewer() {
     const [images, setImages] = useState([]);
     const [manifest, setManifest] = useState();
 
+    setUserInfo();
 
   useEffect(() => {
     getImages();
@@ -28,6 +29,21 @@ function Viewer() {
   const previewImage = async (slide) => {
     setManifest(slide.slide);
   };
+  
+    async function getUserInfo() {
+        const response = await fetch('/.auth/me');
+        const payload = await response.json();
+        const { clientPrincipal } = payload; 
+        return clientPrincipal;
+      }
+
+      async function setUserInfo() {
+        let  clientPrincipal =  await getUserInfo();
+
+        document.getElementById("user").innerHTML = clientPrincipal.userDetails;
+        console.log(clientPrincipal);
+      }
+    
   return (
     <div className="viewer"
          style={{
@@ -64,10 +80,11 @@ function Viewer() {
               );
             })}
       </div>
-      <div>
-          <div class="demoheading" style="display: flex;">
-            User: &nbsp <b><div id="user"  ></div> </b>
-         </div>
+      <div>  
+          <p style="text-align:right;">
+            User: <b><div id="user"  ></div> </b>
+            <span id='consolelog'></span>
+            </p>
           <Box m={3} pt={3}>
             <OpenSeaDragonViewer image={manifest} />
           </Box>
