@@ -39,11 +39,6 @@ function Viewer() {
       async function setUserInfo() {
         let  clientPrincipal =  await getUserInfo();
 
-        anno.setAuthInfo({
-          id: clientPrincipal.userId,
-          displayName: clientPrincipal.userDetails
-        });
-
         document.getElementById("user").innerHTML = clientPrincipal.userDetails + ' at ' + clientPrincipal.identityProvider;
         console.log(clientPrincipal);
       }
