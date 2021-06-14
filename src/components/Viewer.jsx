@@ -94,8 +94,8 @@ function Viewer() {
                     return (
                       <ButtonToggle
                         key={index}
-                        active={active === index}
-                        onClick={() => { setActive(index);
+                        active={active === slide}
+                        onClick={() => { setActive(slide);
                           return previewImage(slide);
                         }}
                       >
