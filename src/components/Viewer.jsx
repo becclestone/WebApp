@@ -13,6 +13,7 @@ function Viewer() {
     const [images, setImages] = useState([]);
     const [manifest, setManifest] = useState();
 
+    setUserInfo();
 
   useEffect(() => {
     getImages();
