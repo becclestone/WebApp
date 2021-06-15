@@ -7,8 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
     flexGrow: 1
   },
@@ -25,8 +23,7 @@ function Navigation() {
   <div className = {classes.root}>
    <AppBar position="static" style={{backgroundColor: '#333333'}}>
       <Toolbar className = {classes.title}>
-        <Typography variant="h4" color="inherit" style={{justifyContent:"center"}}>
-          <p></p>
+        <Typography variant="h4" color="inherit">
           Breast Tissue Clinical Study
         </Typography>
       </Toolbar>
