@@ -48,23 +48,22 @@ function Viewer() {
       }
 
       const Button = styled.button`
-        background-color: grey;
-        color: black;
+        background-color: black;
+        color: white;
         font-size: 20px;
         padding: 10px 60px;
         border-radius: 0px;
         margin: 0px 0px;
         cursor: pointer;
         &:disabled {
-          background-color: transparent;
-          color: black;
-          opacity: 1;
+          color: grey;
+          opacity: 0.7;
           cursor: default;
         }
       `;
 
       const ButtonToggle = styled(Button)`
-        opacity: 1;
+        opacity: 0.6;
         ${({ active }) =>
           active &&
           `
