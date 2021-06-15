@@ -2,17 +2,10 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  appbar: {
-    alignItems: 'center',
-  }
-};
 
 function Navigation() {
   return (
+  <div id = "headerBar">
    <AppBar position="static" centerTitle="true" style={{backgroundColor: '#333333'}}>
     <Container maxWidth="md">
       <Toolbar>
@@ -22,6 +15,7 @@ function Navigation() {
       </Toolbar>
     </Container>
    </AppBar>
+  </div>
   );
 }
 
