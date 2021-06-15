@@ -14,7 +14,6 @@ function Doctor() {
         <p> <Button variant="contained" href="viewer">Doctor A</Button> </p>
         <p> <Button variant="contained" href="viewer">Doctor B</Button> </p>
         <p> <Button variant="contained" href="viewer">Doctor C</Button> </p>
-    </p>
     </div>
     </div>
 </Box>
