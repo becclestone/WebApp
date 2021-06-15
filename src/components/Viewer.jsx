@@ -49,14 +49,14 @@ function Viewer() {
 
       const Button = styled.button`
         background-color: grey;
-        color: white;
+        color: black;
         font-size: 20px;
         padding: 10px 80px;
         border-radius: 0px;
         margin: 0px 0px;
         cursor: pointer;
         &:disabled {
-          color: white;
+          color: transparent;
           opacity: 0.7;
           cursor: default;
         }
