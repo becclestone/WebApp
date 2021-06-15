@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title:{
     textAlign: 'center',
-    display:'block',
+    display:'block'
 }
 }));
 
@@ -19,14 +19,12 @@ function Navigation() {
 
   return (
   <div className = {classes.root}>
-   <AppBar position="static" centerTitle="true" style={{backgroundColor: '#333333'}}>
-  //  <Container maxWidth="md">
+   <AppBar position="static" style={{backgroundColor: '#333333'}}>
       <Toolbar className = {classes.title}>
         <Typography variant="h4" color="inherit" style={{align:"center"}}>
           Breast Tissue Clinical Study
         </Typography>
       </Toolbar>
-  //  </Container>
    </AppBar>
   </div>
   );
