@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    flexGrow: 1,
+    flexGrow: 1
   },
   title:{
     textAlign: 'center',
@@ -24,7 +24,7 @@ function Navigation() {
   <div className = {classes.root}>
    <AppBar position="static" style={{backgroundColor: '#333333'}}>
       <Toolbar className = {classes.title}>
-        <Typography variant="h4" color="inherit" style={{align:"center"}}>
+        <Typography variant="h4" color="inherit" style={{justifyContent:"center"}}>
           Breast Tissue Clinical Study
         </Typography>
       </Toolbar>
