@@ -109,6 +109,9 @@ function Viewer() {
       </div>
       <div>
           <Box m={3}>
+              <Typography align="left">
+                  Image: <b>{slide.name}</b>
+                </Typography>
           <Typography align="right">
             User:{' '}<b><span id="user"></span> </b>
             <span id='consolelog'></span>
