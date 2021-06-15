@@ -58,7 +58,7 @@ function Viewer() {
         &:disabled {
           background-color: transparent;
           color: black;
-          opacity: 0;
+          opacity: 1;
           cursor: default;
         }
       `;
