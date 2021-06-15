@@ -6,7 +6,7 @@ import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 const mystyle = {
 //  display: 'flex',
 //  align: 'center',
-  textalign: 'center',
+  textAlign: 'center',
   backgroundColor: '#333333',
 //  justifycontent: 'center',
 //  alignself: 'center',
