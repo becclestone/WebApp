@@ -15,6 +15,7 @@
 
 .headerBar {
   display: flex;
+  flex-grow: 1;
   width: 100vw;
   justify-content: center;
   align-self: center;
