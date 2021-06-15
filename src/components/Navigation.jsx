@@ -6,12 +6,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+//    display: 'flex',
     flexGrow: 1,
-    verticalAlign: 'middle'
+//verticalAlign: 'middle'
   },
   title:{
     textAlign: 'center',
-    verticalAlign: 'middle',
+//    verticalAlign: 'middle',
     display:'block'
 }
 }));
@@ -21,7 +22,7 @@ function Navigation() {
 
   return (
   <div className = {classes.root}>
-   <AppBar position="static" style={{backgroundColor: '#333333'}}>
+   <AppBar position="static" centerTitle = "true" style={{backgroundColor: '#333333'}}>
       <Toolbar className = {classes.title}>
         <Typography variant="h4" color="inherit" style={{align:"center"}}>
           Breast Tissue Clinical Study
