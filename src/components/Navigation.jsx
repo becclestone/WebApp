@@ -6,7 +6,7 @@ import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 
 function Navigation() {
   return (
-  <div class = "headerBar">
+  <div className = "headerBar">
    <AppBar position="static" centerTitle="true" style={{backgroundColor: '#333333'}}>
     <Container maxWidth="md">
       <Toolbar>
