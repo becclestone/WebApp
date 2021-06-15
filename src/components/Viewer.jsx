@@ -48,15 +48,15 @@ function Viewer() {
       }
 
       const Button = styled.button`
-        background-color: grey;
-        color: black;
+        background-color: black;
+        color: white;
         font-size: 18px;
-        padding: 10px 40px;
+        padding: 10px 80px;
         border-radius: 5px;
-        margin: 10px 0px;
+        margin: 0px 0px;
         cursor: pointer;
         &:disabled {
-          color: white;
+          color: grey;
           opacity: 0.7;
           cursor: default;
         }
