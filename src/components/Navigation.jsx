@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    verticalAlign: 'middle'
   },
   title:{
     textAlign: 'center',
