@@ -64,7 +64,7 @@ function Viewer() {
       `;
 
       const ButtonToggle = styled(Button)`
-        opacity: 0;
+        opacity: 1;
         ${({ active }) =>
           active &&
           `
