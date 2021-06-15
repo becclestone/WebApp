@@ -21,4 +21,3 @@ function Doctor() {
 }
 
 export default Doctor;
-B
