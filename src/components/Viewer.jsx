@@ -56,7 +56,8 @@ function Viewer() {
         margin: 0px 0px;
         cursor: pointer;
         &:disabled {
-          color: transparent;
+          background-color: transparent;
+          color: black;
           opacity: 0;
           cursor: default;
         }
