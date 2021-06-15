@@ -9,7 +9,7 @@ function Navigation() {
    <AppBar position="static" centerTitle="true" style={{backgroundColor: '#333333'}}>
     <Container maxWidth="md">
       <Toolbar>
-        <Typography variant="h4" color="inherit" style={{align="center"}}>
+        <Typography variant="h4" color="inherit" style={{align:"center"}}>
           Breast Tissue Clinical Study
         </Typography>
       </Toolbar>
