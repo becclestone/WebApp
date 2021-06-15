@@ -10,7 +10,7 @@ function Home() {
     <div class ="container">
     <div class="center">
       <div>
-      <img src={"logo"} />
+      <img src={logo} />
         </div>
         <p>
     <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri=https://gray-dune-0f8914010.azurestaticapps.net/viewer">Login</Button>
