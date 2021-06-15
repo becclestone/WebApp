@@ -110,7 +110,7 @@ function Viewer() {
       <div>
           <Box m={3}>
               <Typography align="left">
-                  Image: <b>Image name</b>
+                  Image: <b>{acive}</b>
                 </Typography>
           <Typography align="right">
             User:{' '}<b><span id="user"></span> </b>
