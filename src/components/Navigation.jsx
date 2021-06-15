@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from 'react';
 import './App.css';
 import { Link, withRouter } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
