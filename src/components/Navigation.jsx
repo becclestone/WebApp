@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title:{
     textAlign: 'center',
+    verticalAlign: 'middle',
     display:'block'
 }
 }));
