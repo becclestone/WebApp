@@ -16,6 +16,8 @@
 .headerBar {
   display: flex;
   width: 100vw;
+  justify-content: center;
+  align-self: center;
 }
 
 .App-link {
