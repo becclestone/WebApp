@@ -2,28 +2,31 @@ import React, { Component } from 'react';
 import './App.css';
 import { Link, withRouter } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 
-const mystyle = {
-//  display: 'flex',
-//  align: 'center',
-  textAlign: 'center',
-  backgroundColor: '#333333',
-//  justifycontent: 'center',
-//  alignself: 'center',
-//  flexgrow: 1
-};
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  title:{
+    textAlign: 'center',
+    display:'block',
+}
+}));
 
 function Navigation() {
+  const classes = useStyles();
+
   return (
-  <div className = "headerBar">
-   <AppBar position="static" centerTitle="true" style={mystyle}>
-    <Container maxWidth="md">
-      <Toolbar>
+  <div className = {classes.root}>
+   <AppBar position="static" centerTitle="true" style={{backgroundColor: '#333333'}}>
+  //  <Container maxWidth="md">
+      <Toolbar className = {classes.title}>
         <Typography variant="h4" color="inherit" style={{align:"center"}}>
           Breast Tissue Clinical Study
         </Typography>
       </Toolbar>
-    </Container>
+  //  </Container>
    </AppBar>
   </div>
   );
