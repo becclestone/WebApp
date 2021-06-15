@@ -11,7 +11,7 @@ function Home() {
     <div class="center">
       <p> [INSERT TEXT HERE] </p>
       <p></p>
-      <p><b>Please Login to Microsoft Azure Account Below:</b></p>
+      <p><b>Please Login to Your Microsoft Azure Account Below:</b></p>
       <p></p>
       <img className="photo" src={logo} />
         <p> </p>
