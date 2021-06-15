@@ -2,11 +2,11 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import './Home.css';
 import { Button, Box } from "@material-ui/core";
-import logo from './login2.png';
+import logo from 'src/components/login2.png';
 
 function Home() {
   return (
-    <Box pt={3}>
+    <Box pt={4}>
     <div class ="container">
     <div class="center">
       <img src={"logo"} />
