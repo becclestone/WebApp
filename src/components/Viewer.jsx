@@ -51,7 +51,7 @@ function Viewer() {
         background-color: grey;
         color: black;
         font-size: 20px;
-        padding: 10px 80px;
+        padding: 10px 60px;
         border-radius: 0px;
         margin: 0px 0px;
         cursor: pointer;
@@ -63,7 +63,7 @@ function Viewer() {
       `;
 
       const ButtonToggle = styled(Button)`
-        opacity: 0.6;
+        opacity: 0;
         ${({ active }) =>
           active &&
           `
