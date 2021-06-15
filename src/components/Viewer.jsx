@@ -57,7 +57,7 @@ function Viewer() {
         cursor: pointer;
         &:disabled {
           color: transparent;
-          opacity: 0.7;
+          opacity: 0;
           cursor: default;
         }
       `;
