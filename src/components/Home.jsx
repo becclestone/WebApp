@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import './Home.css';
 import { Button, Box } from "@material-ui/core";
-import logo from './login.png';
+import logo from './login2.png';
 
 function Home() {
   return (
