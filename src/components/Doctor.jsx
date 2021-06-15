@@ -11,8 +11,9 @@ function Doctor() {
     <div class="center">
       <p> [INSERT TEXT HERE] </p>
       <p> </p>
-        <p>
-    <Button variant="contained" href="viewer">Doctor A</Button>
+        <p> <Button variant="contained" href="viewer">Doctor A</Button> </p>
+        <p> <Button variant="contained" href="viewer">Doctor B</Button> </p>
+        <p> <Button variant="contained" href="viewer">Doctor C</Button> </p>
     </p>
     </div>
     </div>
@@ -21,3 +22,4 @@ function Doctor() {
 }
 
 export default Doctor;
+B
