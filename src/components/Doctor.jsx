@@ -13,6 +13,7 @@ function Doctor() {
       <p> </p>
         <p>
     <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri=https://gray-dune-0f8914010.azurestaticapps.net/viewer">Doctor A</Button>
+    </p>
     </div>
     </div>
 </Box>
