@@ -14,7 +14,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title:{
     textAlign: 'center',
-    display:'block'
+    display:'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
 }
 }));
 
