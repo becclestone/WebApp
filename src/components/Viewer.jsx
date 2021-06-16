@@ -24,7 +24,7 @@ function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("https://miradortest.z13.web.core.windows.net/pictures3.json") //"/api/deepzoom/pictures3.json"
+    const response = await fetch("/api/deepzoom/pictures3.json") //"https://miradortest.z13.web.core.windows.net/pictures3.json"
     let image = await response.json();
     console.log('image', image)
     setImages(image.groups)
