@@ -10,7 +10,7 @@
       "allowedRoles": ["contributor"]
     },
     {
-      "route": "/api/deepzoom/*",
+      "route": "api/deepzoom/*",
       "allowedRoles": ["contributor"]
     },
     {
