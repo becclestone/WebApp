@@ -1,18 +1,115 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Drawer from '@material-ui/core/Drawer';
+import Box from '@material-ui/core/Box';
+import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-//import ToggleButton from '@material-ui/core/ToggleButton';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import Badge from '@material-ui/core/Badge';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Link from '@material-ui/core/Link';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
 import styled from 'styled-components';
+import PhotoIcon from '@material-ui/icons/Photo';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-function Viewer() {
-    const [images, setImages] = useState([]);
+const drawerWidth = 200;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  toolbar: {
+    paddingRight: 24, // keep right padding when drawer closed
+  },
+  toolbarIcon: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '0 8px',
+    ...theme.mixins.toolbar,
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginRight: 36,
+  },
+  menuButtonHidden: {
+    display: 'none',
+  },
+  title: {
+    flexGrow: 1,
+  },
+  drawerPaper: {
+    position: 'relative',
+    whiteSpace: 'nowrap',
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerPaperClose: {
+    overflowX: 'hidden',
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    width: theme.spacing(7),
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing(0),
+    },
+  },
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: '100vh',
+    overflow: 'auto',
+  },
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+  },
+  fixedHeight: {
+    height: "75vh",
+  },
+}));
+
+export default function Viewer() {
+  
+  const [images, setImages] = useState([]);
     const [manifest, setManifest] = useState();
     const [active, setActive] = useState();
     const [title, setTitle] = useState();
@@ -24,7 +121,7 @@ function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("https://miradortest.z13.web.core.windows.net/pictures3.json") //"/api/deepzoom/study1/pictures3.json"
+    const response = await fetch("https://miradortest.z13.web.core.windows.net/pictures3.json") //"api/deepzoom/pictures3.json"
     let image = await response.json();
     console.log('image', image)
     setImages(image.groups)
@@ -73,15 +170,54 @@ function Viewer() {
         `}
       `;
 
+  
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div className="viewer"
-         style={{
-       display: "flex",
-       justifyContent:'space-between'
-       }}
-    >
-      <div>
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+        <Toolbar className={classes.toolbar}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+            Breast Tissue Clinical Study
+          </Typography>
+          <Typography align="right">
+            User:{' '}<b><span id="user"></span> </b>
+            <span id='consolelog'></span>
+            </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="permanent"
+        classes={{
+          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+        }}
+        open={open}
+      >
+        <div className={classes.toolbarIcon}>
+          <IconButton onClick={handleDrawerClose}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </div>
+<List>
+       <div>
           {images.map((group, index) => {
               return (
                 <div
@@ -90,41 +226,47 @@ function Viewer() {
                   flexDirection:'column'
                   }}
                 >
-                <Divider />
-                <h3 key={index}>{group.name}</h3>
+                  <Divider />
+                  <ListSubheader> {group.name} </ListSubheader>
                   {group.slides.map((slide, index) => {
                     return (
-                      <ButtonToggle
+                      <ListItem button
                         key={index}
-                        active={active === slide}
-                        onClick={() => { setActive(slide);
+                        onClick={() => {
                           return previewImage(slide);
                         }}
                       >
-                        {slide.name}
-                    </ButtonToggle>
+                        <ListItemIcon>
+                        <PhotoIcon />
+                        </ListItemIcon>
+                        <ListItemText
+                          disableTypography
+                          primary={slide.name} />
+                      </ListItem>
                     );
                   })}
                 </div>
               );
             })}
       </div>
-      <div>
-          <Box m={3}>
-              <Typography align="left">
-                  Image: <b>{title}</b>
-                </Typography>
-          <Typography align="right">
-            User:{' '}<b><span id="user"></span> </b>
-            <span id='consolelog'></span>
-            </Typography>
-            </Box>
-          <Box m={3} pt={2}>
+</List>
+      </Drawer>
+        <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="lg" className={classes.container}>
+           <Grid container spacing={3}>
+            <Grid item xs={12} md={12} lg={12}>
+              <Paper className={fixedHeightPaper}>
+            <Typography align="left">
+               Image: <b>{title}</b>
+                <p></p>
+             </Typography>
             <OpenSeaDragonViewer image={manifest} />
-          </Box>
-      </div>
+              </Paper>
+              </Grid>
+              </Grid>
+               </Container>
+      </main>
     </div>
-  );
+);
 }
-
-export default Viewer;
