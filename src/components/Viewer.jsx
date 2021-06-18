@@ -25,6 +25,7 @@ import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
 import styled from 'styled-components';
 import PhotoIcon from '@material-ui/icons/Photo';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import { ResponsiveContainer } from 'recharts';
 
 const drawerWidth = 200;
 
@@ -253,7 +254,7 @@ export default function Viewer() {
       </Drawer>
         <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
+        <ResponsiveContainer maxWidth="lg" className={classes.container}>
            <Grid container spacing={3}>
             <Grid item xs={12} md={12} lg={12}>
               <Paper className={fixedHeightPaper}>
@@ -265,7 +266,7 @@ export default function Viewer() {
               </Paper>
               </Grid>
               </Grid>
-               </Container>
+               </ResponsiveContainer>
       </main>
     </div>
 );
