@@ -123,6 +123,7 @@ export default function Viewer() {
 
   const getImages = async () => {
     const response = await fetch("api/deepzoom/pictures3.json", {
+                              mode: 'cors',
                               credentials: 'same-origin'}); //""https://miradortest.z13.web.core.windows.net/pictures3.json
     let image = await response.json();
     console.log('image', image)
