@@ -122,12 +122,19 @@ export default function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("https://webappimages.blob.core.windows.net/dzi/pictures3.json?sv=2020-04-08&st=2021-06-22T20%3A24%3A54Z&se=2021-06-23T20%3A24%3A54Z&sr=b&sp=r&sig=JCseS573EW2MoYbhe9iEbpw3bWGpOsxKf6Avxij2Px8%3D", {
-                              method: 'GET',
-                              mode: 'cors',
-                              credentials: 'include'}); //api/deepzoom/pictures3.json""https://miradortest.z13.web.core.windows.net/pictures3.json, "https://webappimages.blob.core.windows.net/dzi/pictures3.json"
+    const response = await fetch("https://webappimages.blob.core.windows.net/dzi/pictures3.json", {
+                              credentials: 'include'
+                          })
+                            .then((response) => response.json())
+                            .then((json) => {
+                             console.log('image', image);
+                            }).catch((err) => {
+                            console.log(err);
+                          }); 
+    //api/deepzoom/pictures3.json""https://miradortest.z13.web.core.windows.net/pictures3.json, "https://webappimages.blob.core.windows.net/dzi/pictures3.json"
+    //https://webappimages.blob.core.windows.net/dzi/pictures3.json?sv=2020-04-08&st=2021-06-22T20%3A24%3A54Z&se=2021-06-23T20%3A24%3A54Z&sr=b&sp=r&sig=JCseS573EW2MoYbhe9iEbpw3bWGpOsxKf6Avxij2Px8%3D
     let image = await response.json();
-    console.log('image', image)
+    //console.log('image', image)
     setImages(image.groups)
   };
 
