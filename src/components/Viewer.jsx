@@ -122,9 +122,10 @@ export default function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("/api/deepzoom/https://webappimages.blob.core.windows.net/dzi/pictures3.json", {
+    const response = await fetch("/api/deepzoom/pictures3.json", {
+                              method: 'GET',
                               credentials: 'include',
-                              // headers: {'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Origin': 'https://gray-dune-0f8914010.azurestaticapps.net/viewer'}}); //api/deepzoom/pictures3.json""https://miradortest.z13.web.core.windows.net/pictures3.json
+                              headers: {'Access-Control-Allow-Credentials': 'true'}});
     let image = await response.json();
     console.log('image', image)
     setImages(image.groups)
