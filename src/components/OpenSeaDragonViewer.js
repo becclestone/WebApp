@@ -1,9 +1,11 @@
 import OpenSeaDragon from "openseadragon";
 import React, { useEffect, useState } from "react";
-
+import * as Annotorious from '@recogito/annotorious-openseadragon';
+import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
 
 const OpenSeaDragonViewer = ({ image }) => {
   const [viewer, setViewer] = useState( null);
+  const[anno, setAnno] = useState(null);
 
   useEffect(() => {
     if (image && viewer) {
@@ -11,10 +13,10 @@ const OpenSeaDragonViewer = ({ image }) => {
     }
   }, [image]);
 
-  const InitOpenseadragon = () => {
+const InitOpenseadragon = () => {
     viewer && viewer.destroy();
-    setViewer(
-      OpenSeaDragon({
+    
+    const initViewer = OpenSeaDragon({
         id: "openSeaDragon",
         prefixUrl: "openseadragon-images/",
         animationTime: 0.5,
@@ -25,8 +27,12 @@ const OpenSeaDragonViewer = ({ image }) => {
         visibilityRatio: 1,
         zoomPerScroll: 2
       })
-    );
+    setViewer(initViewer );
+    const config = {};
+    const annotate = Annotorious(initViewer, config);
+    setAnno(annotate)
   };
+
 
   useEffect(() => {
     InitOpenseadragon();
