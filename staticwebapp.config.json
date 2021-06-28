@@ -6,6 +6,10 @@
       "statusCode": 200
     },
     {
+      "route": "/osdimage.html",
+      "allowedRoles": ["contributor"]
+    },
+    {
       "route": "/viewer",
       "allowedRoles": ["contributor"]
     },

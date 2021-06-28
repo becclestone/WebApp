@@ -5,7 +5,7 @@
             "matchCondition": {
                 "route": "/api/proxy/{*restOfPath}"
             },
-            "backendUri": "https://webappimages.blob.core.windows.net/dzi/{restOfPath}%sas_token%",
+            "backendUri": "https://openseadragon.blob.core.windows.net/dzi/{restOfPath}%sas_token%",
             "requestOverrides": {
                 "backend.request.headers.Accept": "*/*",
                 "backend.request.headers.Cache-Control": "no-cache",
