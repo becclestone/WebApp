@@ -135,7 +135,10 @@ export default function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("https://miradortest.z13.web.core.windows.net/pictures3.json") //"api/deepzoom/pictures3.json"
+    const response = await fetch("/api/deepzoom/pictures3.json", {
+                              method: 'GET',
+                              credentials: 'include',
+                              headers: {'Access-Control-Allow-Credentials': 'true'}}); 
     let image = await response.json();
     console.log('image', image)
     setImages(image.groups)
