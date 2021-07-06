@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
+import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
@@ -13,10 +14,14 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
+import Badge from '@material-ui/core/Badge';
+import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import { OpenSeaDragonViewer } from './OpenSeaDragonViewer';
 import styled from 'styled-components';
 import PhotoIcon from '@material-ui/icons/Photo';
@@ -94,23 +99,36 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+    textAlign: 'center'
   },
   fixedHeight: {
-    height: "75vh",
+    paddingTop: 4,
+    position: "absolute",
+    top: "55%",
+    left: "50%",
+    transform: "translate(-50%, -50%)"
+  },
+    paperShift: {
+    marginLeft: 100,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
 }));
 
 export default function Viewer() {
   
   const [images, setImages] = useState([]);
-  const [manifest, setManifest] = useState();
-  const [title, setTitle] = useState();
+    const [manifest, setManifest] = useState();
+    const [active, setActive] = useState();
+    const [title, setTitle] = useState();
     
-  setUserInfo();
+    setUserInfo();
 
   useEffect(() => {
     getImages();
@@ -160,7 +178,16 @@ export default function Viewer() {
         }
       `;
 
-       
+      const ButtonToggle = styled(Button)`
+        opacity: 0.6;
+        ${({ active }) =>
+          active &&
+          `
+          opacity: 1;
+        `}
+      `;
+
+  
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -169,8 +196,8 @@ export default function Viewer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight, open && classes.paperShift);
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -185,10 +212,10 @@ export default function Viewer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Breast Tissue Clinical Study
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title} align="left">
+            <b>Breast Tissue Clinical Study</b>
           </Typography>
-          <Typography align="right">
+          <Typography>
             User:{' '}<b><span id="user"></span> </b>
             <span id='consolelog'></span>
             </Typography>
@@ -243,10 +270,14 @@ export default function Viewer() {
       </Drawer>
         <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <ResponsiveContainer maxWidth="lg" className={classes.container}>
-           <Grid container spacing={3}>
+        <Container maxWidth="lg" className={classes.container}>
+           <Grid container spacing={3} alignItems="center">
             <Grid item xs={12} md={12} lg={12}>
               <Paper className={fixedHeightPaper}>
+                <Typography align="left">
+                  Hold the <b>[SHIFT]</b> key while clicking and dragging the mouse to create a new annotation.
+                  <p></p>
+                </Typography>
             <Typography align="left">
                Image: <b>{title}</b>
                 <p></p>
@@ -255,7 +286,7 @@ export default function Viewer() {
               </Paper>
               </Grid>
               </Grid>
-               </ResponsiveContainer>
+               </Container>
       </main>
     </div>
 );
