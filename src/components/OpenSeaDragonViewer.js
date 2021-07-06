@@ -1,4 +1,4 @@
-import OpenSeaDragon from "openseadragon";
+import OpenSeaDragon, {parseJSON} from "openseadragon";
 import React, { useEffect, useState } from "react";
 import * as Annotorious from '@recogito/annotorious-openseadragon';
 import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
@@ -61,7 +61,7 @@ const InitOpenseadragon = () => {
         console.log(clientPrincipal);
     }
 
-    /*const storedAnnoatations = getLocalAnnotations
+    const storedAnnoatations = getLocalAnnotations
     if (storedAnnoatations) {
         const annotations = parseJSON(storedAnnoatations)
         setAnnotations(annotations)
@@ -88,15 +88,15 @@ const InitOpenseadragon = () => {
         const newAnnotations  = annotations.filter(val => val.id !== annotation.id)
         setAnnotations(newAnnotations)
         setLocalAnnotation(newAnnotations)
-    });*/
+    });
 }
 
 const getLocalAnnotations =  () => {
-    /*return localStorage.getItem(image.source.Image.Url) */
+    return localStorage.getItem(image.source.Image.Url) 
 }
 
 const setLocalAnnotation = (newAnnotations) => {
-    /*localStorage.setItem(image.source.Image.Url, JSON.stringify(newAnnotations)) */
+    localStorage.setItem(image.source.Image.Url, JSON.stringify(newAnnotations)) 
 }
  
   
