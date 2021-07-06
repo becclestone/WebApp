@@ -6,19 +6,7 @@
       "statusCode": 200
     },
     {
-      "route": "/viewer",
-      "allowedRoles": ["contributor"]
-    },
-    {
       "route": "/api/deepzoom/*",
-      "allowedRoles": ["contributor"]
-    },
-    {
-      "route": "/api/profile",
-      "allowedRoles": ["contributor"]
-    },
-    {
-      "route": "/api/annotation",
       "allowedRoles": ["contributor"]
     },
     {
