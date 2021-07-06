@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import './Home.css';
 import { Button, Grid, Paper } from "@material-ui/core";
 import logo from './login.png';
@@ -43,10 +44,10 @@ function Home() {
       <p></p>
       <p><b>Please Login to Your Microsoft Azure Account Below:</b></p>
       <p></p>
-      <img className="photo" src={logo} alt="Logo"/>
+      <img className="photo" src={logo} />
         <p> </p>
         <p>
-         <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri=https://gray-dune-0f8914010.azurestaticapps.net/viewer">Login</Button>
+    <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri=https://gray-dune-0f8914010.azurestaticapps.net/viewer">Login</Button>
           <p></p>
           <p>Try to open this <a href="viewer">View OpenSeaDragon</a></p>
             </p>
