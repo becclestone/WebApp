@@ -135,7 +135,7 @@ export default function Viewer() {
   }, []);
 
   const getImages = async () => {
-    const response = await fetch("/api/profile", {
+    const response = await fetch("/api/deepzoom/pictures3.json", {
                               method: 'GET',
                               credentials: 'include',
                               headers: {'Access-Control-Allow-Credentials': 'true'}}); 
