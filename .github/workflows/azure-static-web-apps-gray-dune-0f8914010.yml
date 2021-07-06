@@ -43,6 +43,14 @@ jobs:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      - name: Upload YAML to Blob
+        uses: bacongobbler/azure-blob-storage-upload@v1.2.0
+        with:
+          source_dir: ./
+          container_name: dzi
+          connection_string: ${{ secrets.BLOBCONNECTIONSTRING }}
+          extra_args: '--pattern pictures3.json'
+          sync: false
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
