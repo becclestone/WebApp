@@ -61,34 +61,34 @@ const InitOpenseadragon = () => {
         console.log(clientPrincipal);
     }
 
-    const storedAnnoatations = getLocalAnnotations
+    /*const storedAnnoatations = getLocalAnnotations
     if (storedAnnoatations) {
-        /*const annotations = parseJSON(storedAnnoatations)
+        const annotations = parseJSON(storedAnnoatations)
         setAnnotations(annotations)
-        anno.setAnnotations(annotations); */
+        anno.setAnnotations(annotations); 
 
     }
 
     anno.on('createAnnotation', (annotation) => {
         const newAnnotations = [...annotations, annotation]
         setAnnotations(newAnnotations)
-        /*setLocalAnnotation(newAnnotations)*/
+        setLocalAnnotation(newAnnotations)
       });
 
     anno.on('updateAnnotation', (annotation, previous) => {
-        /*const newAnnotations = annotations.map(val => {
+        const newAnnotations = annotations.map(val => {
             if (val.id === annotation.id) return annotation
             return val
         })
         setAnnotations(newAnnotations)
-        setLocalAnnotation(newAnnotations)*/
+        setLocalAnnotation(newAnnotations)
     });
 
     anno.on('deleteAnnotation', (annotation) => {
-        /*const newAnnotations  = annotations.filter(val => val.id !== annotation.id)
+        const newAnnotations  = annotations.filter(val => val.id !== annotation.id)
         setAnnotations(newAnnotations)
-        setLocalAnnotation(newAnnotations)*/
-    });
+        setLocalAnnotation(newAnnotations)
+    });*/
 }
 
 const getLocalAnnotations =  () => {
