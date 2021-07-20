@@ -2,28 +2,21 @@ import OpenSeaDragon from "openseadragon";
 import React, { useEffect, useState } from "react";
 import * as Annotorious from '@recogito/annotorious-openseadragon';
 import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
-import ShapeLabelsFormatter from './ShapeLabelsFormatter.js';
-
 
 const OpenSeaDragonViewer = ({ image }) => {
   const [viewer, setViewer] = useState( null);
-  const [anno, setAnno] = useState(null);
-  const [annotations, setAnnotations] = useState([]);
+  const[anno, setAnno] = useState(null);
 
   useEffect(() => {
     if (image && viewer) {
       viewer.open(image.source);
-      getRemoteAnnotations();
     }
+    if (image && anno){
+        InitAnnotations()
+    } 
   }, [image]);
-  
-  useEffect(() => {
-    if (image && anno) {
-      InitAnnotations();
-    }
-  }, [annotations]);
 
-  const InitOpenseadragon = () => {
+const InitOpenseadragon = () => {
     viewer && viewer.destroy();
     
     const initViewer = OpenSeaDragon({
@@ -33,109 +26,79 @@ const OpenSeaDragonViewer = ({ image }) => {
         blendTime: 0.1,
         constrainDuringPan: true,
         maxZoomPixelRatio: 2,
+        minZoomLevel: 1,
         visibilityRatio: 1,
         zoomPerScroll: 2
-      });
-
-    setViewer(initViewer);
-    const config = {formatter: ShapeLabelsFormatter};
+      })
+    setViewer(initViewer );
+    const config = {};
     const annotate = Annotorious(initViewer, config);
     setAnno(annotate)
   };
+
+  const [annotations, setAnnotations] = useState([])
   
-  const InitAnnotations = async () => {
+  const InitAnnotations = async() => {
     
+    setUserInfo();
+    
+    async function getUserInfo() {
+    const response = await fetch('./auth/me');
+    const payload = await response.json();
+    const { clientPrincipal } = payload;
+    return clientPrincipal;
+  }
+  
+  async function setUserInfo() {
+    let clientPrincipal = await getUserInfo();
+    
+    anno.setAuthInfo({
+      id: clientPrincipal.userId,
+          displayName: clientPrincipal.userDetails
+        });
+
+        document.getElementById("user").innerHTML = clientPrincipal.userDetails;
+        console.log(clientPrincipal);
+    }
+
+    const storedAnnoatations = getLocalAnnotations
+    if (storedAnnoatations) {
+        /*const annotations = parseJSON(storedAnnoatations)
+        setAnnotations(annotations)
+        anno.setAnnotations(annotations); */
+
+    }
+
     anno.on('createAnnotation', (annotation) => {
-      const newAnnotations = [...annotations, annotation]
-      saveRemoteAnnotation([...newAnnotations])
-      setAnnotations(newAnnotations)
-    });
+        const newAnnotations = [...annotations, annotation]
+        setAnnotations(newAnnotations)
+        /*setLocalAnnotation(newAnnotations)*/
+      });
 
     anno.on('updateAnnotation', (annotation, previous) => {
-      const newAnnotations = annotations.map(val => {
-          if (val.id === annotation.id) return annotation
-          return val
-      })
-      setAnnotations([...newAnnotations])
-      saveRemoteAnnotation(newAnnotations)
+        /*const newAnnotations = annotations.map(val => {
+            if (val.id === annotation.id) return annotation
+            return val
+        })
+        setAnnotations(newAnnotations)
+        setLocalAnnotation(newAnnotations)*/
     });
-  
+
     anno.on('deleteAnnotation', (annotation) => {
-      const newAnnotations  = annotations.filter(val => val.id !== annotation.id)
-      setAnnotations([...newAnnotations])
-      saveRemoteAnnotation(newAnnotations)
+        /*const newAnnotations  = annotations.filter(val => val.id !== annotation.id)
+        setAnnotations(newAnnotations)
+        setLocalAnnotation(newAnnotations)*/
     });
-  }
+}
 
-    async function getUserInfo() {
-      const response = await fetch('./auth/me');
-      const payload = await response.json();
-      const { clientPrincipal } = payload;
-      return clientPrincipal;
-    }
+const getLocalAnnotations =  () => {
+    /*return localStorage.getItem(image.source.Image.Url) */
+}
 
-    async function setUserInfo() {
-      let clientPrincipal = await getUserInfo();
-      
-      anno.setAuthInfo({
-            id: clientPrincipal.userId,
-            displayName: clientPrincipal.userDetails
-          });
-
-          console.log(clientPrincipal);
-    }
-  
-  const saveRemoteAnnotation =  (newAnnotations) => {
-    if (!newAnnotations)
-      return;
-
-    var json = JSON.stringify(newAnnotations); 
-    var encodedId = btoa(image.source.Image.Url);
-    fetch("/api/annotation/" + encodedId , { 
-          method: 'POST',
-          credentials: 'include',
-          headers: {'Access-Control-Allow-Credentials': 'true',
-                    'Content-Type': 'application/json'},
-          body: json } )
-      .then((response) => response.json())
-      .then(
-            (result) => {
-              console.log(result);
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              console.log(error);
-            }
-          )
-    }
-
-  
-  const getRemoteAnnotations =  () => {
-    var encodedId = btoa(image.source.Image.Url);
-        fetch("/api/annotation/" + encodedId , { 
-                method: 'GET',
-                credentials: 'include',
-                headers: {'Access-Control-Allow-Credentials': 'true'}
-              })
-        .then((response) => response.json())
-        .then(
-              (result) => {
-                  let newAnnotations = result;     
-                  if (newAnnotations) {
-                    setAnnotations([...newAnnotations]);
-                    anno.setAnnotations(newAnnotations);
-                  }
-              },
-              // Note: it's important to handle errors here
-              // instead of a catch() block so that we don't swallow
-              // exceptions from actual bugs in components.
-              (error) => {
-                console.log(error);
-              }
-            )
-    } 
+const setLocalAnnotation = (newAnnotations) => {
+    /*localStorage.setItem(image.source.Image.Url, JSON.stringify(newAnnotations)) */
+}
+ 
   
   useEffect(() => {
     InitOpenseadragon();
@@ -146,11 +109,11 @@ const OpenSeaDragonViewer = ({ image }) => {
 
   return (
   <div
-    id="openSeaDragon"
-    style={{
-      height: "65vh",
-      width: "75vw"
-    }}
+  id="openSeaDragon"
+  style={{
+    height: "65vh",
+    width: "75vw"
+  }}
   >
   </div>
   );
