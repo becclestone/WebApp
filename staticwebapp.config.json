@@ -6,20 +6,40 @@
       "statusCode": 200
     },
     {
+      "route": "/doctor",
+      "allowedRoles": ["contributor","reader"]
+    },
+    {
       "route": "/viewer",
       "allowedRoles": ["contributor"]
     },
     {
+      "route": "/viewer2",
+      "allowedRoles": ["contributor","reader"]
+    },
+    {
       "route": "/api/deepzoom/*",
-      "allowedRoles": ["contributor"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/api/profile",
-      "allowedRoles": ["contributor"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/api/annotation",
-      "allowedRoles": ["contributor"]
+      "allowedRoles": ["contributor","reader"]
+    },
+    {
+      "route": "/api/questions",
+      "allowedRoles": ["contributor","reader"]
+    },
+    {
+      "route": "/api/progress",
+      "allowedRoles": ["contributor","reader"]
+    },
+    {
+      "route": "/api/answers",
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/login",

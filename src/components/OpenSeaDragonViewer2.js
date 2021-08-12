@@ -6,27 +6,29 @@ import ShapeLabelsFormatter from './ShapeLabelsFormatter.js';
 import ColorFormatter from './ColorFormatter.js';
 
 
-const OpenSeaDragonViewer = ({ image }) => {
+const OpenSeaDragonViewer2 = ({ image }) => {
   const [viewer, setViewer] = useState( null);
   const [anno, setAnno] = useState(null);
+  const [annotations, setAnnotations] = useState([]);
+  const [check, setCheck] = useState(true);
 
   useEffect(() => {
     if (image && viewer) {
       viewer.open(image.source);
+      getRemoteAnnotations();
     }
-    if (image && anno) {    
-      anno.destroy();
-      const config = {formatter: ColorFormatter};
-      const annotate = new Annotorious(viewer, config);
-      setAnno(annotate)
-    }
-  }, [image]);
+//    if (image && anno) {
+//      InitAnnotations();
+//      console.log("Render");
+//    }
+  }, [image, check]);
   
-  useEffect(() => {
-    if (image && anno) {    
-      InitAnnotations();
-    }
-  }, [anno]);
+  // useEffect(() => {
+  //  console.log("Render annotations");
+  //  if (image && anno) {
+  //    InitAnnotations();
+  //  }
+ // }, [annotations]);
 
   const InitOpenseadragon = () => {
     viewer && viewer.destroy();
@@ -43,32 +45,16 @@ const OpenSeaDragonViewer = ({ image }) => {
       });
 
     setViewer(initViewer);
-    const config = {formatter: ColorFormatter};
-    const annotate = new Annotorious(initViewer, config);
+    const config = {formatter: ColorFormatter,
+                    disableEditor: true, 
+                    readOnly: true
+                   };
+    const annotate = Annotorious(initViewer, config);
     setAnno(annotate)
   };
   
   const InitAnnotations = async () => {
-    
-    getRemoteAnnotations();
-    
-    anno.on('createAnnotation', (annotation) => {
-      console.log("creating");
-      const annotationList = anno.getAnnotations();
-      console.log(annotationList);
-      saveRemoteAnnotation([...annotationList])
-    });
-
-    anno.on('updateAnnotation', (annotation, previous) => {
-      const annotationList = anno.getAnnotations();
-      saveRemoteAnnotation([...annotationList])
-    });
-  
-    anno.on('deleteAnnotation', (annotation) => {
-      const annotationList = anno.getAnnotations();
-      saveRemoteAnnotation([...annotationList])
-    });
-    
+      anno.readOnly();
   }
 
     async function getUserInfo() {
@@ -89,32 +75,6 @@ const OpenSeaDragonViewer = ({ image }) => {
           console.log(clientPrincipal);
     }
   
-  const saveRemoteAnnotation =  (newAnnotations) => {
-    console.log("saving");
-    if (!newAnnotations)
-      return;
-
-    var json = JSON.stringify(newAnnotations); 
-    var encodedId = btoa(image.source.Image.Url);
-    fetch("/api/annotation/" + encodedId , { 
-          method: 'POST',
-          credentials: 'include',
-          headers: {'Access-Control-Allow-Credentials': 'true',
-                    'Content-Type': 'application/json'},
-          body: json } )
-      .then((response) => response.json())
-      .then(
-            (result) => {
-              console.log(result);
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              console.log(error);
-            }
-          )
-    }
 
   
   const getRemoteAnnotations =  () => {
@@ -130,6 +90,7 @@ const OpenSeaDragonViewer = ({ image }) => {
                   let newAnnotations = result;     
                   if (newAnnotations) {
                     anno.setAnnotations(newAnnotations);
+                    setAnnotations([...newAnnotations]);
                     console.log("getting");
                     console.log(newAnnotations);
                   }
@@ -142,13 +103,11 @@ const OpenSeaDragonViewer = ({ image }) => {
               }
             )
     } 
- 
+  
   useEffect(() => {
     InitOpenseadragon();
-
     return () => {
         viewer && viewer.destroy();
-
     };
   }, []);
 
@@ -164,4 +123,4 @@ const OpenSeaDragonViewer = ({ image }) => {
   );
 };
 
-export { OpenSeaDragonViewer };
+export { OpenSeaDragonViewer2 };

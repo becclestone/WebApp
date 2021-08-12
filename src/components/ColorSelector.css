@@ -1,0 +1,74 @@
+/* 5. CSS styles for the color selector widget */
+.colorselector-widget {
+  padding:5px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+.colorselector-widget button {
+  outline:none;
+  border:none;
+  display:inline-block;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  cursor:pointer;
+  opacity:0.5;
+  margin:4px;
+}
+
+.colorselector-widget button.selected,
+.colorselector-widget button:hover {
+  opacity:1;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.RED .a9s-outer {
+  stroke:red;
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.GREEN .a9s-outer {
+  stroke:green;
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.BLUE .a9s-outer {
+  stroke:blue;
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.PURPLE .a9s-outer {
+  stroke:rgb(75, 0, 130);
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.ORANGE .a9s-outer {
+  stroke:rgb(255, 140, 0);
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.PINK .a9s-outer {
+  stroke:rgb(225, 20, 147);
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.YELLOW .a9s-outer {
+  stroke:rgb(225, 215, 0);
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.BLACK .a9s-outer {
+  stroke:rgb(0, 0, 0);
+  stroke-width:3;
+}
+
+svg.a9s-annotationlayer .a9s-annotation.RED .a9s-inner,
+svg.a9s-annotationlayer .a9s-annotation.GREEN .a9s-inner,
+svg.a9s-annotationlayer .a9s-annotation.PURPLE .a9s-inner,
+svg.a9s-annotationlayer .a9s-annotation.ORANGE .a9s-inner,
+svg.a9s-annotationlayer .a9s-annotation.PINK .a9s-inner,
+svg.a9s-annotationlayer .a9s-annotation.YELLOW .a9s-inner,
+svg.a9s-annotationlayer .a9s-annotation.BLACK .a9s-inner,
+svg.a9s-annotationlayer .a9s-annotation.BLUE .a9s-inner {
+  fill:transparent;
+  stroke:none;
+}
