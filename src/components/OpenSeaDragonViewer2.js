@@ -9,26 +9,27 @@ import ColorFormatter from './ColorFormatter.js';
 const OpenSeaDragonViewer2 = ({ image }) => {
   const [viewer, setViewer] = useState( null);
   const [anno, setAnno] = useState(null);
-  const [annotations, setAnnotations] = useState([]);
-  const [check, setCheck] = useState(true);
 
   useEffect(() => {
     if (image && viewer) {
       viewer.open(image.source);
-      getRemoteAnnotations();
     }
-//    if (image && anno) {
-//      InitAnnotations();
-//      console.log("Render");
-//    }
-  }, [image, check]);
+    if (image && anno) {    
+      anno.destroy();
+      const config = {formatter: ColorFormatter,
+                       disableEditor: true, 
+                       readOnly: true
+                      };
+      const annotate = new Annotorious(viewer, config);
+      setAnno(annotate)
+    }
+  }, [image]);
   
-  // useEffect(() => {
-  //  console.log("Render annotations");
-  //  if (image && anno) {
-  //    InitAnnotations();
-  //  }
- // }, [annotations]);
+  useEffect(() => {
+    if (image && anno) {    
+      InitAnnotations();
+    }
+  }, [anno]);
 
   const InitOpenseadragon = () => {
     viewer && viewer.destroy();
@@ -54,28 +55,8 @@ const OpenSeaDragonViewer2 = ({ image }) => {
   };
   
   const InitAnnotations = async () => {
-      anno.readOnly();
+      getRemoteAnnotations();
   }
-
-    async function getUserInfo() {
-      const response = await fetch('./auth/me');
-      const payload = await response.json();
-      const { clientPrincipal } = payload;
-      return clientPrincipal;
-    }
-
-    async function setUserInfo() {
-      let clientPrincipal = await getUserInfo();
-      
-      anno.setAuthInfo({
-            id: clientPrincipal.userId,
-            displayName: clientPrincipal.userDetails
-          });
-
-          console.log(clientPrincipal);
-    }
-  
-
   
   const getRemoteAnnotations =  () => {
     var encodedId = btoa(image.source.Image.Url);
@@ -90,7 +71,6 @@ const OpenSeaDragonViewer2 = ({ image }) => {
                   let newAnnotations = result;     
                   if (newAnnotations) {
                     anno.setAnnotations(newAnnotations);
-                    setAnnotations([...newAnnotations]);
                     console.log("getting");
                     console.log(newAnnotations);
                   }

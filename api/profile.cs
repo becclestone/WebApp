@@ -38,7 +38,7 @@ namespace Microsoft.Function
             
             // Verify identity
             ClaimsPrincipal principal = ClientPrincipal.Parse(req);
-            if (!principal.IsInRole("contributor"))
+            if (!principal.IsInRole("contributor") && !principal.IsInRole("reader"))
                 return new UnauthorizedResult();
             
             string userId = principal.Identity.Name;

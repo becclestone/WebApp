@@ -31,7 +31,7 @@ namespace Microsoft.Function
             ClaimsPrincipal principal = ClientPrincipal.Parse(req);
 
             log.LogInformation($"DeepZoom Roles: {principal.Identity}" );
-            if (!principal.IsInRole("contributor"))
+            if (!principal.IsInRole("contributor") && !principal.IsInRole("reader"))
                 return new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
 
             // rewrite backend URL 

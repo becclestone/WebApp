@@ -16,8 +16,8 @@ namespace Microsoft.Function
 
     public class AnnotationItem
     {
-        [JsonProperty("userId")]
-        public string userId { get; set; }
+        [JsonProperty("imageId")]
+        public string imageId { get; set; }
         [JsonProperty("id")]
         public string id { get; set; }
         //[JsonProperty("annotations")]
@@ -84,7 +84,7 @@ namespace Microsoft.Function
 
             // Verify identity
             ClaimsPrincipal principal = ClientPrincipal.Parse(req);
-            if (!principal.IsInRole("contributor"))
+            if (!principal.IsInRole("contributor") && !principal.IsInRole("reader"))
                 return;
 
             string userId = principal.Identity.Name;
@@ -92,7 +92,7 @@ namespace Microsoft.Function
             string requestBody = new StreamReader(req.Body).ReadToEnd();
             var input = JsonConvert.DeserializeObject<List<AnnotationProps>>(requestBody);
 
-            document = new { userId = userId, id = imageId, AnnotationJson = input }; //new object[] { requestBody } };
+            document = new { id = imageId, imageId = imageId, AnnotationJson = input }; //new object[] { requestBody } };
         }
 
         [FunctionName("getAnnotation")]
@@ -110,7 +110,7 @@ namespace Microsoft.Function
 
             // Verify identity
             ClaimsPrincipal principal = ClientPrincipal.Parse(req);
-            if (!principal.IsInRole("contributor"))
+            if (!principal.IsInRole("contributor") && !principal.IsInRole("reader"))
               return new UnauthorizedResult();
 
             string userId = principal.Identity.Name;
@@ -119,7 +119,7 @@ namespace Microsoft.Function
             {
                 var response = await client.ReadDocumentAsync<AnnotationItem>(
                     UriFactory.CreateDocumentUri("medimages", "Annotations", imageId),
-                    new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(userId) });
+                    new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(imageId) });
 
                 annotations = (AnnotationItem)(dynamic)response;
                 log.LogInformation($"function GetAnnotations invoked {imageId} {userId} {annotations}");
