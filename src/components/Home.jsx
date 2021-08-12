@@ -48,7 +48,6 @@ function Home() {
         <p>
     <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri=https://gray-dune-0f8914010.azurestaticapps.net/viewer">Login</Button>
           <p></p>
-          <p>Try to open this <a href="/viewer2">View OpenSeaDragon</a></p>
             </p>
     </Typography>
     </Paper>
