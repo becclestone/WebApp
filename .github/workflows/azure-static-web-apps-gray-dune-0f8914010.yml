@@ -39,7 +39,7 @@ jobs:
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:  
-          backend_url: "https://webappimages.blob.core.windows.net/dzi/"
+          backend_url: "https://webappparsstorage.blob.core.windows.net/dzi/"
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
