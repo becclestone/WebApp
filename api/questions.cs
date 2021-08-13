@@ -47,7 +47,7 @@ namespace Microsoft.Function
                 try
                 {
                     var response = await client.ReadDocumentAsync(
-                        UriFactory.CreateDocumentUri("medimages", "Questions", "userId"),
+                        UriFactory.CreateDocumentUri("medimages", "Questions", userId),
                         new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(userId) });
 
                     questions = (QuestionsItem)(dynamic)response.Resource;
