@@ -27,6 +27,8 @@ namespace Microsoft.Function
         }
         public class AnswerText
         {
+            [JsonProperty("imageTitle")]
+            public string ImageTitle {get; set;}   
             [JsonProperty("questionstext")]
             public string QuestionsText {get; set;}
             [JsonProperty("answerstext")]

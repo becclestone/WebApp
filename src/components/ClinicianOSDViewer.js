@@ -1,3 +1,7 @@
+/*
+OpenSea Dragon setup code followed & modified the following tutorial: https://medium.com/wesionary-team/getting-started-with-openseadragon-in-react-9461ec3bf841
+Annotorious setup code followed & modified the following tutorial: https://medium.com/geekculture/create-selections-and-annotations-on-high-resolution-zoomable-images-in-reactjs-openseadragon-a847976d080d
+*/
 import OpenSeaDragon from "openseadragon";
 import React, { useEffect, useState } from "react";
 import * as Annotorious from '@recogito/annotorious-openseadragon';
@@ -5,8 +9,7 @@ import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
 import ShapeLabelsFormatter from './ShapeLabelsFormatter.js';
 import ColorFormatter from './ColorFormatter.js';
 
-
-const OpenSeaDragonViewer2 = ({ image }) => {
+const ClinicianOSDViewer = ({ image }) => {
   const [viewer, setViewer] = useState( null);
   const [anno, setAnno] = useState(null);
 
@@ -23,11 +26,15 @@ const OpenSeaDragonViewer2 = ({ image }) => {
       const annotate = new Annotorious(viewer, config);
       setAnno(annotate)
     }
+    if (!image && viewer) {
+      viewer.world.removeAll();
+      anno.clearAnnotations();
+    }
   }, [image]);
   
   useEffect(() => {
     if (image && anno) {    
-      InitAnnotations();
+      getRemoteAnnotations();
     }
   }, [anno]);
 
@@ -46,17 +53,13 @@ const OpenSeaDragonViewer2 = ({ image }) => {
       });
 
     setViewer(initViewer);
-    const config = {formatter: ColorFormatter,
+    const config = {formatter: ColorFormatter, 
                     disableEditor: true, 
                     readOnly: true
                    };
     const annotate = Annotorious(initViewer, config);
     setAnno(annotate)
   };
-  
-  const InitAnnotations = async () => {
-      getRemoteAnnotations();
-  }
   
   const getRemoteAnnotations =  () => {
     var encodedId = btoa(image.source.Image.Url);
@@ -103,4 +106,4 @@ const OpenSeaDragonViewer2 = ({ image }) => {
   );
 };
 
-export { OpenSeaDragonViewer2 };
+export { ClinicianOSDViewer };

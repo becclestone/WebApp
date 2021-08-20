@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const drawerWidth = 300;
 
 export const useStyles = makeStyles((theme) => ({
+
   formControl: {
     margin: theme.spacing(5),
     minWidth: 120,
@@ -70,7 +71,7 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   fixedHeight: {
-    paddingTop: 4,
+    paddingTop: 2,
     position: "absolute",
     top: "55%",
     right: "50%",

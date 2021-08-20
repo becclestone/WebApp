@@ -1,12 +1,15 @@
+/*
+Code from plug-in of Annotorious open source project: https://github.com/recogito/recogito-client-plugins/tree/main/packages/annotorious-shape-labels
+*/
 import './ShapeLabels.css';
 
 var ShapeLabelsFormatter = function(annotation) {
         const bodies = Array.isArray(annotation.body) ?
           annotation.body : [ annotation.body ];
 
-        const firstTag = bodies.find(b => b.purpose == 'tagging');
+        const firstComment = bodies.find(b => b.purpose == 'commenting');
         
-        if (firstTag) {
+        if (firstComment) {
           const foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
 
           // Fill annotation dimensions
@@ -15,12 +18,12 @@ var ShapeLabelsFormatter = function(annotation) {
 
           foreignObject.innerHTML = `
             <div xmlns="http://www.w3.org/1999/xhtml" class="a9s-shape-label">
-              ${firstTag.value}
+              ${firstComment.value}
             </div>`;
 
           return {
             element: foreignObject,
-            className: firstTag.value
+            className: firstComment.value
           };
         }
       };

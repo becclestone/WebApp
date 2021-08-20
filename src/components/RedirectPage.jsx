@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-class Doctor extends React.Component {
+class RedirectPage extends React.Component {
   constructor() {
     super();
 
@@ -42,11 +42,11 @@ class Doctor extends React.Component {
               for (let i=0; i < result.length; i++) {
                 if (result[i] == 'contributor') {
                   console.log(result[i]);
-                  link = "/viewer";
+                  link = "/operatorviewer";
                   return link;
                 } else if (result[i] == 'reader') {
                   console.log(result[i]);
-                  link = "/viewer2";
+                  link = "/clinicianviewer";
                   return link;
                 }
               }
@@ -66,4 +66,4 @@ class Doctor extends React.Component {
     return <Redirect to= {this.state.redirectLink} />
   }
  }
-export default Doctor;
+export default RedirectPage;

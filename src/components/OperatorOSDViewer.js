@@ -1,3 +1,7 @@
+/*
+OpenSea Dragon setup code followed the following tutorial: https://medium.com/wesionary-team/getting-started-with-openseadragon-in-react-9461ec3bf841
+Annotorious setup code followed the following tutorial: https://medium.com/geekculture/create-selections-and-annotations-on-high-resolution-zoomable-images-in-reactjs-openseadragon-a847976d080d
+*/
 import OpenSeaDragon from "openseadragon";
 import React, { useEffect, useState } from "react";
 import * as Annotorious from '@recogito/annotorious-openseadragon';
@@ -6,7 +10,7 @@ import ShapeLabelsFormatter from './ShapeLabelsFormatter.js';
 import ColorFormatter from './ColorFormatter.js';
 
 
-const OpenSeaDragonViewer = ({ image }) => {
+const OperatorOSDViewer = ({ image }) => {
   const [viewer, setViewer] = useState( null);
   const [anno, setAnno] = useState(null);
 
@@ -70,24 +74,6 @@ const OpenSeaDragonViewer = ({ image }) => {
     });
     
   }
-
-    async function getUserInfo() {
-      const response = await fetch('./auth/me');
-      const payload = await response.json();
-      const { clientPrincipal } = payload;
-      return clientPrincipal;
-    }
-
-    async function setUserInfo() {
-      let clientPrincipal = await getUserInfo();
-      
-      anno.setAuthInfo({
-            id: clientPrincipal.userId,
-            displayName: clientPrincipal.userDetails
-          });
-
-          console.log(clientPrincipal);
-    }
   
   const saveRemoteAnnotation =  (newAnnotations) => {
     console.log("saving");
@@ -164,4 +150,4 @@ const OpenSeaDragonViewer = ({ image }) => {
   );
 };
 
-export { OpenSeaDragonViewer };
+export { OperatorOSDViewer };

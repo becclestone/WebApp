@@ -2,19 +2,19 @@
   "routes": [
     {
       "route": "/",
-      "serve": "/home",
+      "serve": "/login",
       "statusCode": 200
     },
     {
-      "route": "/doctor",
+      "route": "/redirectpage",
       "allowedRoles": ["contributor","reader"]
     },
     {
-      "route": "/viewer",
+      "route": "/operatorviewer",
       "allowedRoles": ["contributor"]
     },
     {
-      "route": "/viewer2",
+      "route": "/clinicianviewer",
       "allowedRoles": ["contributor","reader"]
     },
     {

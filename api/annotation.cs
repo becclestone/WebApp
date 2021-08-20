@@ -1,3 +1,4 @@
+/* Fetches and saves annotations to the "Annotations" container in the CosmosDB */
 using System;
 using System.IO;
 using System.Threading.Tasks;
