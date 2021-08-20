@@ -15,7 +15,7 @@
     },
     {
       "route": "/clinicianviewer",
-      "allowedRoles": ["contributor","reader"]
+      "allowedRoles": ["reader"]
     },
     {
       "route": "/api/deepzoom/*",
