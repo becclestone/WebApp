@@ -1,0 +1,66 @@
+{
+    "id": "test_1@parsinillumisonics.onmicrosoft.com",
+    "userId": "test_1@parsinillumisonics.onmicrosoft.com",
+    "profile": [
+        {
+            "groups": [
+                {
+                    "name": "Test 1's Images",
+                    "slides": [
+                        {
+                            "credit": null,
+                            "description": "",
+                            "download_url": "",
+                            "name": "Image Name 1",
+                            "properties_url": "",
+                            "slide": {
+                                "mpp": null,
+                                "name": null,
+                                "source": {
+                                    "Image": {
+                                        "Format": "jpeg",
+                                        "Overlap": 1,
+                                        "Size": {
+                                            "Height": 4000,
+                                            "Width": 18500
+                                        },
+                                        "TileSize": 254,
+                                        "Url": "/api/deepzoom/3/slides_files/",
+                                        "xmlns": "http://schemas.microsoft.com/deepzoom/2008"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "credit": null,
+                            "description": "",
+                            "download_url": "",
+                            "name": "Image Name 2",
+                            "properties_url": "",
+                            "slide": {
+                                "mpp": null,
+                                "name": null,
+                                "source": {
+                                    "Image": {
+                                        "Format": "jpeg",
+                                        "Overlap": 1,
+                                        "Size": {
+                                            "Height": 4000,
+                                            "Width": 18500
+                                        },
+                                        "TileSize": 254,
+                                        "Url": "/api/deepzoom/4/slides_files/",
+                                        "xmlns": "http://schemas.microsoft.com/deepzoom/2008"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "openslide": "3.4.1",
+            "openslide_python": "1.1.1",
+            "stamp": "9ae8ddb6"
+        }
+    ]
+}
