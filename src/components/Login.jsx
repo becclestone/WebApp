@@ -21,7 +21,7 @@ export default function Login() {
       <p><b>Please Login to Your Microsoft Azure Account Below:</b></p>
       <p></p>
       <p>
-        <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri=https://gray-dune-0f8914010.azurestaticapps.net/redirectpage">Login</Button>
+        <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri=https://https://zealous-bush-042f51e10.azurestaticapps.net/redirectpage">Login</Button>
       </p>
     </Typography>
     </Paper>
