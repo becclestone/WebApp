@@ -7,11 +7,15 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+     - 'steup/**'
+     - 'docs/**'
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-
+    paths-ignore:
+      - 'setup/**'
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -34,11 +38,11 @@ jobs:
           api_location: "/api" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-                  env:  
+        env:  
           backend_url: "https://bentesting.blob.core.windows.net/dzi/"
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_CLIENT_ID: "48ad06cc-68dc-463b-af42-9c1e4c4e915a"
+          AZURE_TENANT_ID: "9948e87f-8bb1-4e49-a37a-3f7435461a6b"
+          AZURE_CLIENT_SECRET: "QRcbCiwKbZKs25hYFSf_5rhQsDB.kYy7Dp"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
