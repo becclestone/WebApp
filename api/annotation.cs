@@ -73,7 +73,7 @@ namespace Microsoft.Function
         public static  void RunSave(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "annotation/{imageId}")] HttpRequest req,
             [CosmosDB(
-                databaseName: "medimages",
+                databaseName: "ben-testing",
                 collectionName: "Annotations",
                 ConnectionStringSetting = "CosmosDBConnection")
             ] out dynamic document,
@@ -100,7 +100,7 @@ namespace Microsoft.Function
         public static async Task<IActionResult> RunGet(
            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "annotation/{imageId}")] HttpRequest req,
             [CosmosDB(
-                databaseName: "medimages",  
+                databaseName: "ben-testing",  
                 collectionName: "Annotations",
                 ConnectionStringSetting = "CosmosDBConnection")
            ]  DocumentClient client,
@@ -119,7 +119,7 @@ namespace Microsoft.Function
             try
             {
                 var response = await client.ReadDocumentAsync<AnnotationItem>(
-                    UriFactory.CreateDocumentUri("medimages", "Annotations", imageId),
+                    UriFactory.CreateDocumentUri("ben-testing", "Annotations", imageId),
                     new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(imageId) });
 
                 annotations = (AnnotationItem)(dynamic)response;
