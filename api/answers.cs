@@ -41,7 +41,7 @@ namespace Microsoft.Function
         public static  void RunSave(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "answers/{questionId}")] HttpRequest req,
             [CosmosDB(
-                databaseName: "medimages",
+                databaseName: "ben-testing",
                 collectionName: "Answers",
                 ConnectionStringSetting = "CosmosDBConnection")
             ] out dynamic document,
@@ -69,7 +69,7 @@ namespace Microsoft.Function
             public static async Task<IActionResult> RunGet(
                 [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "answers/{imageId}")] HttpRequest req,
                 [CosmosDB(
-                    databaseName: "medimages",
+                    databaseName: "ben-testing",
                     collectionName: "Answers",
                     ConnectionStringSetting = "CosmosDBConnection")
                 ]  DocumentClient client,
@@ -88,7 +88,7 @@ namespace Microsoft.Function
                 try
                 {
                     var response = await client.ReadDocumentAsync(
-                        UriFactory.CreateDocumentUri("medimages", "Answers", userId),
+                        UriFactory.CreateDocumentUri("ben-testing", "Answers", userId),
                         new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(imageId) });
 
                     answers = (AnswersItem)(dynamic)response.Resource;
