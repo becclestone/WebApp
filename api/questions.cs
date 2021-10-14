@@ -29,7 +29,7 @@ namespace Microsoft.Function
             public static async Task<IActionResult> RunGet(
                 [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "questions")] HttpRequest req,
                 [CosmosDB(
-                    databaseName: "medimages",
+                    databaseName: "ben-testing",
                     collectionName: "Questions",
                     ConnectionStringSetting = "CosmosDBConnection")
                 ]  DocumentClient client,
@@ -47,7 +47,7 @@ namespace Microsoft.Function
                 try
                 {
                     var response = await client.ReadDocumentAsync(
-                        UriFactory.CreateDocumentUri("medimages", "Questions", userId),
+                        UriFactory.CreateDocumentUri("ben-testing", "Questions", userId),
                         new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(userId) });
 
                     questions = (QuestionsItem)(dynamic)response.Resource;
@@ -59,7 +59,7 @@ namespace Microsoft.Function
                 if (questions == null)
                 {
                     var defaultResponse = await client.ReadDocumentAsync(
-                            UriFactory.CreateDocumentUri("medimages", "Questions", "DEFAULT"),
+                            UriFactory.CreateDocumentUri("ben-testing", "Questions", "DEFAULT"),
                             new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey("DEFAULT") });
                     if (defaultResponse == null )
                         return new NotFoundResult();
