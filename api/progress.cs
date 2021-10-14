@@ -88,7 +88,7 @@ namespace Microsoft.Function
 
                 } catch (Exception ) {
                     log.LogError($"Cant find Questions entry for  in cosmosdb");
-                }
+                } 
                 
                 if (indices == null)
                 {
