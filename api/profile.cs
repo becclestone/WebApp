@@ -28,7 +28,7 @@ namespace Microsoft.Function
         public static async Task<IActionResult> RunGetProfile(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "profile")] HttpRequest req,
             [CosmosDB(
-                databaseName: "medimages",
+                databaseName: "ben-testing",
                 collectionName: "Profiles",
                 ConnectionStringSetting = "CosmosDBConnection")
             ]  DocumentClient client,
@@ -46,7 +46,7 @@ namespace Microsoft.Function
             try
             {
                 var response = await client.ReadDocumentAsync(
-                    UriFactory.CreateDocumentUri("medimages", "Profiles", userId),
+                    UriFactory.CreateDocumentUri("ben-testing", "Profiles", userId),
                     new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(userId) });
 
                 profileItem = (ProfileItem)(dynamic)response.Resource;
@@ -58,7 +58,7 @@ namespace Microsoft.Function
             if (profileItem == null) // check default profile entries
             {
                 var defaultResponse = await client.ReadDocumentAsync(
-                            UriFactory.CreateDocumentUri("medimages", "Profiles", "DEFAULT"),
+                            UriFactory.CreateDocumentUri("ben-testing", "Profiles", "DEFAULT"),
                             new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey("DEFAULT") });
                 if (defaultResponse == null )
                     return new NotFoundResult();
