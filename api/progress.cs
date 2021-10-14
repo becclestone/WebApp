@@ -36,7 +36,7 @@ namespace Microsoft.Function
         public static  void RunSave(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "progress")] HttpRequest req,
             [CosmosDB(
-                databaseName: "medimages",
+                databaseName: "ben-testing",
                 collectionName: "Progress",
                 ConnectionStringSetting = "CosmosDBConnection")
             ] out dynamic document,
@@ -62,7 +62,7 @@ namespace Microsoft.Function
             public static async Task<IActionResult> RunGet(
                 [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "progress")] HttpRequest req,
                 [CosmosDB(
-                    databaseName: "medimages",
+                    databaseName: "ben-testing",
                     collectionName: "Progress",
                     ConnectionStringSetting = "CosmosDBConnection")
                 ]  DocumentClient client,
@@ -80,7 +80,7 @@ namespace Microsoft.Function
                 try
                 {
                     var response = await client.ReadDocumentAsync(
-                        UriFactory.CreateDocumentUri("medimages", "Progress", userId),
+                        UriFactory.CreateDocumentUri("ben-testing", "Progress", userId),
                         new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey(userId) });
 
                     indices = (IndexItem)(dynamic)response.Resource;
@@ -93,7 +93,7 @@ namespace Microsoft.Function
                 if (indices == null)
                 {
                     var defaultResponse = await client.ReadDocumentAsync(
-                            UriFactory.CreateDocumentUri("medimages", "Questions", "DEFAULT"),
+                            UriFactory.CreateDocumentUri("ben-testing", "Questions", "DEFAULT"),
                             new RequestOptions { PartitionKey = new Microsoft.Azure.Documents.PartitionKey("DEFAULT") });
                     if (defaultResponse == null )
                         return new NotFoundResult();
