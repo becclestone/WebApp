@@ -21,7 +21,8 @@ export default function Login() {
       <p><b>Please Login to Your Microsoft Azure Account Below:</b></p>
       <p></p>
       <p>
-        <Button variant="contained" href="/.auth/login/aad?post_login_redirect_uri="+window.location.href+"/redirectpage">Login</Button>
+        let res = str1.concat("/.auth/login/aad?post_login_redirect_uri=",window.location.href,"/redirectpage");
+        <Button variant="contained" href=res>Login</Button>
       </p>
     </Typography>
     </Paper>
