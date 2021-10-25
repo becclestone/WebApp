@@ -11,7 +11,7 @@
     },
     {
       "route": "/operatorviewer",
-      "allowedRoles": ["contributor"]
+      "allowedRoles": ["contributor","anonymous"]
     },
     {
       "route": "/clinicianviewer",
@@ -19,27 +19,27 @@
     },
     {
       "route": "/api/deepzoom/*",
-      "allowedRoles": ["contributor","reader"]
+      "allowedRoles": ["contributor","reader","anonymous"]
     },
     {
       "route": "/api/profile",
-      "allowedRoles": ["contributor","reader"]
+      "allowedRoles": ["contributor","reader","anonymous"]
     },
     {
       "route": "/api/annotation",
-      "allowedRoles": ["contributor","reader"]
+      "allowedRoles": ["contributor","reader","anonymous"]
     },
     {
       "route": "/api/questions",
-      "allowedRoles": ["contributor","reader"]
+      "allowedRoles": ["contributor","reader","anonymous"]
     },
     {
       "route": "/api/progress",
-      "allowedRoles": ["contributor","reader"]
+      "allowedRoles": ["contributor","reader","anonymous"]
     },
     {
       "route": "/api/answers",
-      "allowedRoles": ["contributor","reader"]
+      "allowedRoles": ["contributor","reader","anonymous"]
     },
     {
       "route": "/login",
