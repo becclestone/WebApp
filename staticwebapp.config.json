@@ -18,6 +18,10 @@
       "allowedRoles": ["reader"]
     },
     {
+      "route": "/clinicianviewer",
+      "allowedRoles": ["anonymous"]
+    },
+    {
       "route": "/api/deepzoom/*",
       "allowedRoles": ["contributor","reader"]
     },
