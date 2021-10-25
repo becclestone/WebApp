@@ -7,39 +7,39 @@
     },
     {
       "route": "/redirectpage",
-      "allowedRoles": ["contributor","reader","anonymous"]
+      "allowedRoles": ["contributor","reader"
     },
     {
       "route": "/operatorviewer",
-      "allowedRoles": ["contributor","anonymous"]
+      "allowedRoles": ["contributor"]
     },
     {
       "route": "/clinicianviewer",
-      "allowedRoles": ["reader","anonymous"]
+      "allowedRoles": ["reader"]
     },
     {
       "route": "/api/deepzoom/*",
-      "allowedRoles": ["contributor","reader","anonymous"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/api/profile",
-      "allowedRoles": ["contributor","reader","anonymous"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/api/annotation",
-      "allowedRoles": ["contributor","reader","anonymous"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/api/questions",
-      "allowedRoles": ["contributor","reader","anonymous"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/api/progress",
-      "allowedRoles": ["contributor","reader","anonymous"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/api/answers",
-      "allowedRoles": ["contributor","reader","anonymous"]
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/login",
