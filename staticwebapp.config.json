@@ -7,7 +7,7 @@
     },
     {
       "route": "/redirectpage",
-      "allowedRoles": ["contributor","reader"
+      "allowedRoles": ["contributor","reader"]
     },
     {
       "route": "/operatorviewer",
