@@ -15,11 +15,7 @@
     },
     {
       "route": "/clinicianviewer",
-      "allowedRoles": ["reader"]
-    },
-    {
-      "route": "/clinicianviewer",
-      "allowedRoles": ["anonymous"]
+      "allowedRoles": ["reader","anonymous"]
     },
     {
       "route": "/api/deepzoom/*",
