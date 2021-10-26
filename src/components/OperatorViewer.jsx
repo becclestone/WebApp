@@ -131,7 +131,6 @@ export default function OperatorViewer() {
 		      							<Typography align="left">
 									To colour the annotation, add one of following colours in the first TAG as shown: <font color="red">RED</font>, <font color="darkorange">ORANGE</font>, <font color="gold">YELLOW</font>, 
 			  						<font color="green"> GREEN</font>, <font color="blue">BLUE</font>, <font color="indigo">PURPLE</font>, <font color="deeppink">PINK</font>, BLACK
-			    						</p>
 		    							</Typography>
 		    						</Paper>
 		    					</Grid>
