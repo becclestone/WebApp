@@ -13,8 +13,6 @@ export default function Login() {
     <div style={{ 
       backgroundImage: `url("https://via.placeholder.com/500")` 
     }}>
-      Hello World
-    </div>
     <ResponsiveContainer maxWidth="lg" className={classes.container}>
     <Grid container spacing={3} alignItems="center">
     <Grid item xs={12} md={12} lg={12}>
