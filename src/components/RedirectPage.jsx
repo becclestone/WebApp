@@ -53,8 +53,8 @@ class RedirectPage extends React.Component {
         (error) => {
               console.log(error);
             }
-          )
        }
+        }
 
 
   render() {
