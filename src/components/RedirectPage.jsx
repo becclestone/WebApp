@@ -49,6 +49,11 @@ class RedirectPage extends React.Component {
                   link = "/clinicianviewer";
                   return link;
                 }
+                else if (result[i] == 'authenticated') {
+                  console.log(result[i]);
+                  link = "/clinicianviewer";
+                  return link;
+                }
               }
             },
         (error) => {
