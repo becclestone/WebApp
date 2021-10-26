@@ -48,14 +48,14 @@ class RedirectPage extends React.Component {
                   console.log(result[i]);
                   link = "/clinicianviewer";
                   return link;
+                }
               }
-            }
+            },
         (error) => {
               console.log(error);
             }
-       }
-        }
-
+         )
+      }
 
   render() {
     if(this.state.redirectLink == '')
