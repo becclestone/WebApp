@@ -118,7 +118,6 @@ export default function OperatorViewer() {
 						<Grid container spacing={3} alignItems="center">
 		  					<Grid item xs={12} md={12} lg={12}>
 		    						<Paper className={fixedHeightPaper}>
-		    							</Typography>
 		  							<Typography align="left">
 		     							Image: <b>{title}</b>
 		      							<p></p>
@@ -132,6 +131,7 @@ export default function OperatorViewer() {
 									To colour the annotation, add one of following colours in the first TAG as shown: <font color="red">RED</font>, <font color="darkorange">ORANGE</font>, <font color="gold">YELLOW</font>, 
 			  						<font color="green"> GREEN</font>, <font color="blue">BLUE</font>, <font color="indigo">PURPLE</font>, <font color="deeppink">PINK</font>, BLACK
 			    						<p></p>
+		    							</Typography>
 		    						</Paper>
 		    					</Grid>
 		    				</Grid>
