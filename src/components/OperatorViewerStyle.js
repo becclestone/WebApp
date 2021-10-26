@@ -54,7 +54,7 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: theme.spacing(7),
+    width: theme.spacing(8),
     [theme.breakpoints.up('sm')]: {
       width: theme.spacing(0),
     },
@@ -66,18 +66,18 @@ export const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
   },
   container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
   },
   paper: {
-    padding: theme.spacing(4),
+    padding: theme.spacing(1),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
     textAlign: 'center'
   },
   fixedHeight: {
-    paddingTop: 4,
+    paddingTop: 1,
     position: "absolute",
     top: "55%",
     left: "50%",
