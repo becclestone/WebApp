@@ -49,7 +49,7 @@ class RedirectPage extends React.Component {
                   link = "/clinicianviewer";
                   return link;
               }
-            },
+            }
         (error) => {
               console.log(error);
             }
