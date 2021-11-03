@@ -97,11 +97,13 @@ export default function OperatorViewer() {
 							<ListSubheader> {group.name} </ListSubheader>
 								{group.slides.map((slide, index) => {
 			  						return (
-			    							<ListItem button key={index} onClick={() => {
-											return previewImage(slide);}}>
+			    							//<ListItem button key={index} onClick={() => {
+											//return previewImage(slide);}}>
 			      							//<ListItemIcon>
 										//<PhotoIcon />
 			      							//</ListItemIcon>
+										<ListItem button key={index} onClick={() => {
+											return previewImage(slide);}}>
 			      							<ListItemText disableTypography primary={slide.name} />
 			   							</ListItem>
 			  						);
