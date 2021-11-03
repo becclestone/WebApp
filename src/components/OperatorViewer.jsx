@@ -99,9 +99,9 @@ export default function OperatorViewer() {
 			  						return (
 			    							<ListItem button key={index} onClick={() => {
 											return previewImage(slide);}}>
-			      							<ListItemIcon>
-										<PhotoIcon />
-			      							</ListItemIcon>
+			      							//<ListItemIcon>
+										//<PhotoIcon />
+			      							//</ListItemIcon>
 			      							<ListItemText disableTypography primary={slide.name} />
 			   							</ListItem>
 			  						);
