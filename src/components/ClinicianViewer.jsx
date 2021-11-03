@@ -80,8 +80,10 @@ export default function ClinicianViewer() {
 				headers: {'Access-Control-Allow-Credentials': 'true'}});
 	    let indices = await response.json();
 	    console.log('fetchindices', indices)
-	    setIndex(indices[0].imageIndex);
-	    setCurrentQuestion(indices[0].questionIndex);
+	    //setIndex(indices[0].imageIndex);
+		setIndex(indices[0].0);
+	    //setCurrentQuestion(indices[0].questionIndex);
+		setCurrentQuestion(indices[0].0);
 	};
 	
 	const getImages = async () => {
