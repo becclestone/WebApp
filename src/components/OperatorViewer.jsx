@@ -135,6 +135,8 @@ export default function OperatorViewer() {
 			  						<font color="green"> GREEN</font>, <font color="blue">BLUE</font>, <font color="indigo">PURPLE</font>, <font color="deeppink">PINK</font>, BLACK
 		    							</Typography>
 		    						</Paper>
+								<Tooltip title="Delete">
+								</Tooltip>
 		    					</Grid>
 		    				</Grid>
 		     			</Container>
