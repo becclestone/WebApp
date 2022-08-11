@@ -16,6 +16,7 @@ import './App.css';
 export default function OperatorViewer() {
 
 	const [images, setImages] = useState([]);
+	const [projName, setProjName] = useState([]);
 	const [manifest, setManifest] = useState();
 	const [title, setTitle] = useState();
 	const [open, setOpen] = useState(true);
@@ -33,6 +34,7 @@ export default function OperatorViewer() {
 	  let image = await response.json();
 	  console.log('image', image)
 	  setImages(image.groups)
+	  setProjName(image.title)
 	};
 
 	const previewImage = async (slide) => {
@@ -74,7 +76,7 @@ export default function OperatorViewer() {
 						<MenuIcon />
 					</IconButton>
 						<Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title} align="left">
-		  				<b>IllumiSonics Histology Gallery</b>
+		  				<b>{projName}</b>
 						</Typography>
 						<Typography>
 		  				User:{' '}<b><span id="user"></span> </b>
