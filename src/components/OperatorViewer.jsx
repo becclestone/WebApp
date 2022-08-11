@@ -37,7 +37,7 @@ export default function OperatorViewer() {
 
 	const previewImage = async (slide) => {
 	  setManifest(slide.slide);
-	  setTitle(slide.name_full);
+	  setTitle(slide.name + ": " + slide.description);
 	};
 
 	async function getUserInfo() {
