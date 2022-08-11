@@ -74,7 +74,7 @@ export default function OperatorViewer() {
 						<MenuIcon />
 					</IconButton>
 						<Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title} align="left">
-		  				<b>PARS Histology Imaging</b>
+		  				<b>IllumiSonics Histology Gallery</b>
 						</Typography>
 						<Typography>
 		  				User:{' '}<b><span id="user"></span> </b>
