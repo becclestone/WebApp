@@ -40,6 +40,7 @@ const OperatorOSDViewer = ({ image }) => {
     }
   }, [anno]);
   
+/*
   const getEditor = async () => {
     const response = await fetch("/api/profile", {
 	  		    method: 'GET',
@@ -48,7 +49,7 @@ const OperatorOSDViewer = ({ image }) => {
     let image = await response.json();
     console.log('image', image)
     setEditor(image.edit_annotations)
-  };
+  }; */
   
   const InitOpenseadragon = () => {
     viewer && viewer.destroy();
