@@ -67,27 +67,26 @@ const OperatorOSDViewer = ({ image }) => {
   const InitAnnotations = async () => {
     	let annotationAbility = await getAnnotateAbility();
     	getRemoteAnnotations();
-  	
- 	console.log("annotation ability", annotationAbility)
 
-	if (annotationAbility === "true"){
-    
-	anno.on('createAnnotation', (annotation) => {
-	console.log("creating");
-	const annotationList = anno.getAnnotations();
-	console.log(annotationList);
-	saveRemoteAnnotation([...annotationList])
-	});
+  	if (annotationAbility === "true"){
+		console.log("annotation ability", annotationAbility)
 
-	anno.on('updateAnnotation', (annotation, previous) => {
-	const annotationList = anno.getAnnotations();
-	saveRemoteAnnotation([...annotationList])
-	});
+		anno.on('createAnnotation', (annotation) => {
+		console.log("creating");
+		const annotationList = anno.getAnnotations();
+		console.log(annotationList);
+		saveRemoteAnnotation([...annotationList])
+		});
 
-	anno.on('deleteAnnotation', (annotation) => {
-	const annotationList = anno.getAnnotations();
-	saveRemoteAnnotation([...annotationList])
-	});
+		anno.on('updateAnnotation', (annotation, previous) => {
+		const annotationList = anno.getAnnotations();
+		saveRemoteAnnotation([...annotationList])
+		});
+
+		anno.on('deleteAnnotation', (annotation) => {
+		const annotationList = anno.getAnnotations();
+		saveRemoteAnnotation([...annotationList])
+		});
 	}
   }
   
