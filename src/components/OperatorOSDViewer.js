@@ -29,7 +29,7 @@ const OperatorOSDViewer = ({ image }) => {
   
   useEffect(() => {
     if (image && anno) {   
-    InitAnnotations();
+    	InitAnnotations();
     /*  getEditor();
       let str2 = "false";
       if (console.log(editor === str2)) {
@@ -37,7 +37,7 @@ const OperatorOSDViewer = ({ image }) => {
       } else {
       InitAnnotations();
       }*/
-    }
+    };
   }, [anno]);
   
 /*
