@@ -52,6 +52,16 @@ const OperatorOSDViewer = ({ image }) => {
     const annotate = new Annotorious(initViewer, config);
     setAnno(annotate)
   };
+	
+  const getAnnotateAbility = () => {
+	  const response = await fetch("/api/profile", {
+				    method: 'GET',
+				    credentials: 'include',
+				    headers: {'Access-Control-Allow-Credentials': 'true'}}); 
+	  let image = await response.json();
+	  console.log('image', image)
+	  setAnnotationsAbility(image.edit_annotations)
+	};
   
   const InitAnnotations = async () => {
     	getAnnotateAbility();
@@ -131,16 +141,6 @@ const OperatorOSDViewer = ({ image }) => {
               }
             )
     } 
- 
-  const getAnnotateAbility = async () => {
-	  const response = await fetch("/api/profile", {
-				    method: 'GET',
-				    credentials: 'include',
-				    headers: {'Access-Control-Allow-Credentials': 'true'}}); 
-	  let image = await response.json();
-	  console.log('image', image)
-	  setAnnotationsAbility(image.edit_annotations)
-	};
   
   useEffect(() => {
     InitOpenseadragon();
