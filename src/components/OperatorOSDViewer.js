@@ -56,6 +56,8 @@ const OperatorOSDViewer = ({ image }) => {
   const InitAnnotations = async () => {
     
     	getRemoteAnnotations();
+	  
+	if (annotationAbility === "true"){
     
 	anno.on('createAnnotation', (annotation) => {
 	console.log("creating");
@@ -73,6 +75,7 @@ const OperatorOSDViewer = ({ image }) => {
 	const annotationList = anno.getAnnotations();
 	saveRemoteAnnotation([...annotationList])
 	});
+	}
   }
   
   const saveRemoteAnnotation =  (newAnnotations) => {
