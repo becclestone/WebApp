@@ -4,7 +4,7 @@ Annotorious setup code followed the following tutorial: https://medium.com/geekc
 */
 import OpenSeaDragon from "openseadragon";
 import React, { useEffect, useState } from "react";
-import * as Annotorious from '@recogito/annotorious-openseadragon';
+import * as Annotorious from '@recogito/annotorious-openseadragon@2.7.7';
 import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
 import ShapeLabelsFormatter from './ShapeLabelsFormatter.js';
 import ColorFormatter from './ColorFormatter.js';
