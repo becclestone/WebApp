@@ -13,6 +13,7 @@ import ColorFormatter from './ColorFormatter.js';
 const OperatorOSDViewer = ({ image }) => {
   const [viewer, setViewer] = useState( null);
   const [anno, setAnno] = useState(null);
+  const [annotationAbility, setAnnotationsAbility] = useState();
 
   useEffect(() => {
     if (image && viewer) {
@@ -56,23 +57,25 @@ const OperatorOSDViewer = ({ image }) => {
     
     getRemoteAnnotations();
     
-    anno.on('createAnnotation', (annotation) => {
-      console.log("creating");
-      const annotationList = anno.getAnnotations();
-      console.log(annotationList);
-      saveRemoteAnnotation([...annotationList])
-    });
+    let str2 = 'false';
+    if (console.log(annotationAbility === str2)){
+      anno.on('createAnnotation', (annotation) => {
+        console.log("creating");
+        const annotationList = anno.getAnnotations();
+        console.log(annotationList);
+        saveRemoteAnnotation([...annotationList])
+      });
 
-    anno.on('updateAnnotation', (annotation, previous) => {
-      const annotationList = anno.getAnnotations();
-      saveRemoteAnnotation([...annotationList])
-    });
-  
-    anno.on('deleteAnnotation', (annotation) => {
-      const annotationList = anno.getAnnotations();
-      saveRemoteAnnotation([...annotationList])
-    });
-    
+      anno.on('updateAnnotation', (annotation, previous) => {
+        const annotationList = anno.getAnnotations();
+        saveRemoteAnnotation([...annotationList])
+      });
+
+      anno.on('deleteAnnotation', (annotation) => {
+        const annotationList = anno.getAnnotations();
+        saveRemoteAnnotation([...annotationList])
+      });
+    }
   }
   
   const saveRemoteAnnotation =  (newAnnotations) => {
@@ -129,6 +132,16 @@ const OperatorOSDViewer = ({ image }) => {
             )
     } 
  
+  const getAnnotateAbility = async () => {
+	  const response = await fetch("/api/profile", {
+				    method: 'GET',
+				    credentials: 'include',
+				    headers: {'Access-Control-Allow-Credentials': 'true'}}); 
+	  let image = await response.json();
+	  console.log('image', image)
+	  setAnnotationsAbility(image.edit_annotations)
+	};
+  
   useEffect(() => {
     InitOpenseadragon();
 
