@@ -13,7 +13,6 @@ import ColorFormatter from './ColorFormatter.js';
 const OperatorOSDViewer = ({ image }) => {
   const [viewer, setViewer] = useState( null);
   const [anno, setAnno] = useState(null);
-  const [annotationAbility, setAnnotationsAbility] = useState();
 
   useEffect(() => {
     if (image && viewer) {
@@ -60,11 +59,13 @@ const OperatorOSDViewer = ({ image }) => {
 				    headers: {'Access-Control-Allow-Credentials': 'true'}}); 
 	  let image = await response.json();
 	  console.log('image', image)
-	  setAnnotationsAbility(image.edit_annotations)
+	  annotationAbility = image.edit_annotations
+	  console.log("annotation ability", annotationAbility)
+	  return annotationAbility
 	};
   
   const InitAnnotations = async () => {
-    	await getAnnotateAbility();
+    	let annotationAbility = await getAnnotateAbility();
     	getRemoteAnnotations();
 	  
 	if (annotationAbility === "true"){
