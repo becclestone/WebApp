@@ -34,9 +34,9 @@ const OperatorOSDViewer = ({ image }) => {
       if (console.log(editor === str2)) {
       getRemoteAnnotations();
       }
-      else (){
+      else{
       InitAnnotations();
-      };
+      }
     }
   }, [anno]);
   
