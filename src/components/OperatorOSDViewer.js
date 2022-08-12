@@ -13,6 +13,7 @@ import ColorFormatter from './ColorFormatter.js';
 const OperatorOSDViewer = ({ image }) => {
   const [viewer, setViewer] = useState( null);
   const [anno, setAnno] = useState(null);
+  const [editor, setEditor] = useState(null);
 
   useEffect(() => {
     if (image && viewer) {
@@ -27,11 +28,28 @@ const OperatorOSDViewer = ({ image }) => {
   }, [image]);
   
   useEffect(() => {
-    if (image && anno) {    
+    if (image && anno) {   
+      getEditor();
+      let str2 = "false";
+      if (console.log(editor === str2)) {
+      getRemoteAnnotations();
+      }
+      else (){
       InitAnnotations();
+      };
     }
   }, [anno]);
-
+  
+	const getEditor = async () => {
+	  const response = await fetch("/api/profile", {
+				    method: 'GET',
+				    credentials: 'include',
+				    headers: {'Access-Control-Allow-Credentials': 'true'}}); 
+	  let image = await response.json();
+	  console.log('image', image)
+	  setEditor(image.edit_annotations)
+	};
+  
   const InitOpenseadragon = () => {
     viewer && viewer.destroy();
     
