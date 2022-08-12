@@ -2,7 +2,7 @@
 OpenSea Dragon setup code followed the following tutorial: https://medium.com/wesionary-team/getting-started-with-openseadragon-in-react-9461ec3bf841
 Annotorious setup code followed the following tutorial: https://medium.com/geekculture/create-selections-and-annotations-on-high-resolution-zoomable-images-in-reactjs-openseadragon-a847976d080d
 */
-import OpenSeaDragon from "openseadragon";
+import OpenSeaDragon from "openseadragon/openseadragon.min.js";
 import React, { useEffect, useState } from "react";
 import * as Annotorious from '@recogito/annotorious-openseadragon';
 import '@recogito/annotorious-openseadragon/dist/annotorious.min.css';
