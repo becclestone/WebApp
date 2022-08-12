@@ -59,7 +59,7 @@ const OperatorOSDViewer = ({ image }) => {
 				    headers: {'Access-Control-Allow-Credentials': 'true'}}); 
 	  let image = await response.json();
 	  console.log('image', image)
-	  annotationAbility = image.edit_annotations
+	  let annotationAbility = image.edit_annotations
 	  console.log("annotation ability", annotationAbility)
 	  return annotationAbility
 	};
