@@ -57,8 +57,7 @@ const OperatorOSDViewer = ({ image }) => {
     
     getRemoteAnnotations();
     
-    let str2 = 'false';
-    if (console.log(annotationAbility === str2)){
+    if (console.log(annotationAbility === 'true')){
       anno.on('createAnnotation', (annotation) => {
         console.log("creating");
         const annotationList = anno.getAnnotations();
