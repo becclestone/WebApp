@@ -29,13 +29,14 @@ const OperatorOSDViewer = ({ image }) => {
   
   useEffect(() => {
     if (image && anno) {   
-      getEditor();
+    InitAnnotations();
+    /*  getEditor();
       let str2 = "false";
       if (console.log(editor === str2)) {
       getRemoteAnnotations();
       } else {
       InitAnnotations();
-      }
+      }*/
     }
   }, [anno]);
   
