@@ -54,7 +54,7 @@ const OperatorOSDViewer = ({ image }) => {
   };
   
   const InitAnnotations = async () => {
-    
+    	getAnnotateAbility();
     	getRemoteAnnotations();
 	  
 	if (annotationAbility === "true"){
