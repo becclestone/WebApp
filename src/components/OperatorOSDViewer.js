@@ -53,7 +53,7 @@ const OperatorOSDViewer = ({ image }) => {
     setAnno(annotate)
   };
 	
-  const getAnnotateAbility = () => {
+  const getAnnotateAbility = async () => {
 	  const response = await fetch("/api/profile", {
 				    method: 'GET',
 				    credentials: 'include',
@@ -64,7 +64,7 @@ const OperatorOSDViewer = ({ image }) => {
 	};
   
   const InitAnnotations = async () => {
-    	getAnnotateAbility();
+    	await getAnnotateAbility();
     	getRemoteAnnotations();
 	  
 	if (annotationAbility === "true"){
