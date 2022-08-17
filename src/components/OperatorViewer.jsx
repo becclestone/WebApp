@@ -129,7 +129,8 @@ export default function OperatorViewer() {
 		   							</Typography>
 		  							<OperatorOSDViewer image={manifest} />
 									{
-										0 == 0 && (
+										0 == 0 && 
+										<div>
 											<Typography align="left">
 											Hold the <b>[SHIFT]</b> key while clicking and dragging the mouse to create a new annotation.
 											<p></p>
@@ -138,7 +139,7 @@ export default function OperatorViewer() {
 											To colour the annotation, add one of following colours in the first TAG as shown: <font color="red">RED</font>, <font color="darkorange">ORANGE</font>, <font color="gold">YELLOW</font>, 
 											<font color="green"> GREEN</font>, <font color="blue">BLUE</font>, <font color="indigo">PURPLE</font>, <font color="deeppink">PINK</font>, BLACK
 											</Typography>	
-										)
+										</div>
 									}
 		    						</Paper>
 		    					</Grid>
