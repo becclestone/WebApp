@@ -129,7 +129,7 @@ export default function OperatorViewer() {
 		   							</Typography>
 		  							<OperatorOSDViewer image={manifest} />
 									{
-										0 == 0 && 
+										0 == 1 && 
 										<div>
 											<Typography align="left">
 											Hold the <b>[SHIFT]</b> key while clicking and dragging the mouse to create a new annotation.
