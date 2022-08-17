@@ -20,11 +20,25 @@ export default function OperatorViewer() {
 	const [manifest, setManifest] = useState();
 	const [title, setTitle] = useState();
 	const [open, setOpen] = useState(true);
+	const [annotation, setAnnotation] = useState();
 
 	useEffect(() => {
+	  getAnnotateAbility
 	  setUserInfo();
 	  getImages();
 	}, []);
+	
+  	const getAnnotateAbility = async () => {
+	  const response = await fetch("/api/profile", {
+				    method: 'GET',
+				    credentials: 'include',
+				    headers: {'Access-Control-Allow-Credentials': 'true'}}); 
+	  let image = await response.json();
+	  console.log('image', image)
+	  let annotationAbility = image.edit_annotations
+	  console.log("annotation ability", annotationAbility)
+	  setAnnotation(annotationAbility === "true")
+	};
 
 	const getImages = async () => {
 	  const response = await fetch("/api/profile", {
@@ -129,7 +143,7 @@ export default function OperatorViewer() {
 		   							</Typography>
 		  							<OperatorOSDViewer image={manifest} />
 									{
-										0 == 1 && 
+										annotation && 
 										<div>
 											<Typography align="left">
 											Hold the <b>[SHIFT]</b> key while clicking and dragging the mouse to create a new annotation.
