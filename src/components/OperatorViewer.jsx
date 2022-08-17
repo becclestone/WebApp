@@ -23,7 +23,7 @@ export default function OperatorViewer() {
 	const [annotation, setAnnotation] = useState();
 
 	useEffect(() => {
-	  getAnnotateAbility
+	  getAnnotateAbility();
 	  setUserInfo();
 	  getImages();
 	}, []);
