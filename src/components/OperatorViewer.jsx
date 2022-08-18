@@ -146,7 +146,7 @@ export default function OperatorViewer() {
 										annotation && 
 										<div>
 											<Typography align="left">
-											Hold the <b>[SHIFT]</b> key while clicking and dragging the mouse to create a new annotation.
+											Hold the <b>[SHIFT]</b> key while clicking and dragging the mouse to spawn a new annotation. Once open click on blue header bar to place it in the image.
 											<p></p>
 											</Typography>
 											<Typography align="left">
