@@ -15,7 +15,7 @@ import './App.css';
 
 export default function OperatorViewer() {
 
-	const [images, setImages] = useState([]);
+	const [images, setImages] = useState([]); 
 	const [projName, setProjName] = useState([]);
 	const [manifest, setManifest] = useState();
 	const [title, setTitle] = useState();
