@@ -14,6 +14,7 @@ function App() {
           <Route path="/operatorviewer" exact component={() => <OperatorViewer />} />
           <Route path="/clinicianviewer" exact component={() => <ClinicianViewer />} />
           <Route path="/redirectpage" exact component={() => <RedirectPage />} />
+          <Redirect to="/" />
         </Switch>
       </Router>
     </div>
