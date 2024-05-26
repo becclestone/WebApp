@@ -3,7 +3,7 @@ Follwed the following tutorial for setting up a multi-page React app: https://ww
 Altered the code to fit our desired setup
 */
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Login, OperatorViewer, ClinicianViewer, RedirectPage } from "./components";
 function App() {
   return (
