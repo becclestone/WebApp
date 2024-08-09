@@ -118,8 +118,8 @@ export default function OperatorViewer() {
 			      							//<ListItemIcon>
 										//<PhotoIcon />
 			      							//</ListItemIcon>
-										<ListItem button key={index} onClick={ handleDrawerClose () => {
-											return previewImage(slide);}}>
+										<ListItem button key={index} onClick={() => {
+											return previewImage(slide);} handleDrawerClose}>
 			      							<ListItemText disableTypography primary={slide.name} />
 			   							</ListItem>
 			  						);
