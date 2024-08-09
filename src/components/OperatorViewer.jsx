@@ -119,7 +119,7 @@ export default function OperatorViewer() {
 										//<PhotoIcon />
 			      							//</ListItemIcon>
 										<ListItem button key={index} onClick={() => {
-											return previewImage(slide); handleDrawerClose} }>
+											handleDrawerClose; return previewImage(slide);} }>
 			      							<ListItemText disableTypography primary={slide.name} />
 			   							</ListItem>
 			  						);
