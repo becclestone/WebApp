@@ -98,7 +98,8 @@ export default function OperatorViewer() {
 						</Typography>
 	      			</Toolbar>
 	    		</AppBar>
-	    		<Drawer variant="permanent" classes={{paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}} open={open}>
+			<Button onClick={toggleDrawer(true)}>Select Slide</Button>
+	    		<Drawer classes={{paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}} open={open} onClose={toggleDrawer(false)}>
 	      			<div className={classes.toolbarIcon}>
 					<IconButton onClick={handleDrawerClose}>
 		  			<ChevronLeftIcon />
