@@ -157,8 +157,8 @@ const OperatorOSDViewer = ({ image }) => {
   <div
     id="openSeaDragon"
     style={{
-      height: "65vh",
-      width: "75vw"
+      height: "85vh",
+      width: "85vw"
     }}
   >
   </div>
